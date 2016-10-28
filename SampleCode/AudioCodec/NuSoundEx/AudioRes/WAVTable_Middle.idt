@@ -1,0 +1,886 @@
+MIDDLE_C = C4
+
+;=============================
+;	Melodic instrument
+;=============================
+INS0:   ; ins0
+	DEFADSR <A=0, D=2.2, S=0, R=0.4>
+	DEFROOT	"WB_000_GrandPiano_E5_M"<UNOTE=E4, CENT=-9, LPITCH=G1, HPITCH=G#4>
+	DEFROOT	"WB_000_GrandPiano_Db6_M"<UNOTE=C#5, CENT=0, LPITCH=A4, HPITCH=G#5>
+	DEFROOT	"WB_000_GrandPiano_C7_M"<UNOTE=C6, CENT=-4, LPITCH=A5, HPITCH=F8>
+;
+;
+;INS1:   ;ins0
+;;	DEFADSR <A=0, D=1.7, S=0, R=0.3>
+;;	DEFROOT	"WB_000_GrandPiano_E5_M"<UNOTE=E4, CENT=-9, LPITCH=G1, HPITCH=G#4>
+;;	DEFROOT	"WB_000_GrandPiano_Db6_M"<UNOTE=C#5, CENT=0, LPITCH=A4, HPITCH=G#5>
+;;	DEFROOT	"WB_000_GrandPiano_C7_M"<UNOTE=C6, CENT=-4, LPITCH=A5, HPITCH=F8>
+;;
+;
+;INS2:   ;ins0
+;;	DEFADSR <A=0, D=2, S=0, R=0.5>
+;;	DEFVBTO <Delay=0.15, Depth=0.15, Rate=5>
+;;        DEFROOT	"WB_000_GrandPiano_E5_M"<UNOTE=E4, CENT=-9, LPITCH=G1, HPITCH=G#4>
+;;	DEFROOT	"WB_000_GrandPiano_Db6_M"<UNOTE=C#5, CENT=0, LPITCH=A4, HPITCH=G#5>
+;;	DEFROOT	"WB_000_GrandPiano_C7_M"<UNOTE=C6, CENT=-4, LPITCH=A5, HPITCH=F8>
+;
+;
+;INS3:	;ins0
+;;	DEFADSR <A=0, D=1.2, S=0, R=0.3>
+;;	DEFROOT	"WB_000_GrandPiano_E5_M"<UNOTE=E4, CENT=-9, LPITCH=G1, HPITCH=G#4>
+;;        DEFROOT	"WB_000_GrandPiano_Db6_M"<UNOTE=C#5, CENT=0, LPITCH=A4, HPITCH=A6>
+;        
+;	
+;INS4:   ;ins4
+;;	DEFADSR <A=0, D=1.7, S=0, R=0.3>
+;;	DEFROOT	"WB_004_RhodesPiano_G5_M"<UNOTE=G4,CENT=-9, LPITCH=C2, HPITCH=A#4>
+;;	DEFROOT	"WB_004_RhodesPiano_Ab6_M"<UNOTE=G#5,CENT=-4, LPITCH=B4, HPITCH=D#6>
+;;	DEFROOT	"WB_004_RhodesPiano_Db8_M"<UNOTE=C#7,CENT=3, LPITCH=E6, HPITCH=D8>
+;
+;
+;INS5:	;ins5
+;;	DEFADSR <A=0, D=1.5, S=0, R=0.5>
+;;	DEFROOT "WB_005_ChorusedPiano_C6_M" <UNOTE=C5, CENT=0, LPITCH=D3, HPITCH=C8>
+;	
+;	
+;INS6:   ;ins24
+;;        DEFADSR <A=0, D=1, S=0, R=0.4>
+;;	DEFROOT	"WB_024_NylonGuitar_B4_M"<UNOTE=B3,CENT=-3, LPITCH=E1, HPITCH=D7>
+;
+;	
+;INS7:   ;ins7
+;;        DEFADSR <A=0, D=1.5, S=0, R=0.15>
+;;	DEFROOT	"WB_007_Clavinet_C6_M"<UNOTE=C5,CENT=-9, LPITCH=E2, HPITCH=C#8>
+;
+;		
+;INS8:   ;ins8
+;;        DEFADSR <A=0, D=1.6, S=0, R=0.9>
+;;	DEFROOT	"WB_008_Celesta_C6_M"<UNOTE=C5,CENT=-4, LPITCH=C4, HPITCH=C8>
+;
+;INS9:	;ins 11
+;;        DEFADSR <A=0, D=0.8, S=0, R=2.2>
+;;	DEFROOT "WB_011_Vibraphone_E5_M"<UNOTE=E4,CENT=3, LPITCH=F1, HPITCH=G#4>
+;;	DEFROOT "WB_011_Vibraphone_E6_M"<UNOTE=E5,CENT=6, LPITCH=A4, HPITCH=D8>
+;
+;
+;INS112:	;ins112
+;;        DEFADSR <A=0, D=1, S=0, R=0.5>
+;;	DEFROOT	"WB_112_TinkleBell_Eb5_M"<UNOTE=D#4,CENT=7, LPITCH=F2, HPITCH=C7>
+;
+;	
+;INS11:  ;ins11
+;;	DEFADSR <A=0, D=1.2, S=0, R=0.3>
+;;	DEFVBTO <Delay=0.1, Depth=0.24, Rate=5>
+;;	DEFROOT "WB_011_Vibraphone_E5_M"<UNOTE=E4,CENT=3, LPITCH=F1, HPITCH=G#4>
+;;	DEFROOT "WB_011_Vibraphone_E6_M"<UNOTE=E5,CENT=6, LPITCH=A4, HPITCH=D8>
+;
+;
+;INS10:  ;ins10
+;;	DEFADSR <A=0, D=1, S=0, R=0.7>
+;;	DEFROOT	"WB_010_MusicBox_F7_M"<UNOTE=F6,CENT=-35, LPITCH=G2, HPITCH=D8>
+;
+;	
+;INS12:  ;ins13
+;;	DEFADSR <A=0, D=1.6, S=0, R=0.4>
+;;	DEFROOT	"WB_013_Xylophone_C6_M"<UNOTE=C5,CENT=-5, LPITCH=G2, HPITCH=F7>
+;
+;
+;INS13:  ;ins13
+;;	DEFADSR <A=0, D=1.6, S=0, R=0.4>
+;;	DEFROOT	"WB_013_Xylophone_C6_M"<UNOTE=C5,CENT=-5, LPITCH=G2, HPITCH=F7>
+;
+;
+;INS14:  ;ins14
+;;	DEFADSR <A=0, D=1, S=0, R=0.7>
+;;	DEFROOT	"WB_014_TubularBells_D7_M"<UNOTE=D6, CENT=-52, LPITCH=E3, HPITCH=G8>
+;	
+;
+;INS15:  ;ins15
+;;        DEFADSR <A=0, D=1, S=0, R=0.15>
+;;        DEFROOT "WB_015_Dulcimer_Db7_M"<UNOTE=C#6,CENT=10, LPITCH=D4, HPITCH=C8>
+;
+;	
+;INS16:  ;ins16
+;;	DEFADSR <A=0, D=0, S=1, R=0.15>
+;;	DEFROOT	"WB_016_HammondOrgan_C6_M"<UNOTE=C5,CENT=0, LPITCH=D2, HPITCH=C7>
+;
+;
+;INS17:  ;ins16
+;;	DEFADSR <A=0, D=0, S=1, R=0.2>
+;;	DEFVBTO <Delay=0.4, Depth=0.07, Rate=5>
+;;	DEFROOT	"WB_016_HammondOrgan_C6_M"<UNOTE=C5,CENT=0, LPITCH=D2, HPITCH=C7>
+;
+;
+;INS18:  ;ins16
+;;	DEFADSR <A=0, D=0, S=1, R=0.2>
+;;	DEFVBTO <Delay=0.4, Depth=0.2, Rate=3>
+;;	DEFROOT	"WB_016_HammondOrgan_C6_M"<UNOTE=C5,CENT=0, LPITCH=D2, HPITCH=C7>
+;
+;
+;INS19:  ;ins19
+;;	DEFADSR <A=0, D=0, S=1, R=0.3>
+;;	DEFROOT	"WB_019_ChurchOrgan_Eb5_M"<UNOTE=D#4,CENT=-4, LPITCH=C2, HPITCH=G7>
+;
+;
+;INS20:  ;ins68
+;;	DEFADSR <A=0, D=1.2, S=0.75, R=0.3>
+;;	DEFROOT	"WB_068_Oboe_Bb5_M"<UNOTE=A#4,CENT=-17, LPITCH=C2, HPITCH=D7>
+;	
+;	
+;INS22:  ;ins22
+;;	DEFADSR <A=0, D=0, S=1, R=0.15>
+;;	DEFROOT	"WB_022_Harmonica_C6_M"<UNOTE=C5, CENT=0, LPITCH=G2, HPITCH=C7>
+;		
+;
+;INS21:  ;ins21
+;;	DEFADSR <A=0.05, D=0.3, S=0.7, R=0.2>
+;;	DEFROOT	"WB_021_Accordion_Ab5_M"<UNOTE=G#4,CENT=-11, LPITCH=C2, HPITCH=G#5>
+;;	DEFROOT	"WB_021_Accordion_C8_M"<UNOTE=C7,CENT=0, LPITCH=A5, HPITCH=G8>
+;
+;	
+;INS23:  ;ins21
+;;	DEFADSR <A=0.02, D=0.3, S=0.7, R=0.1>
+;;	DEFVBTO <Delay=0.4, Depth=0.1, Rate=5>	
+;;	DEFROOT	"WB_021_Accordion_Ab5_M"<UNOTE=G#4,CENT=-11, LPITCH=C2, HPITCH=G#5>
+;;	DEFROOT	"WB_021_Accordion_C8_M"<UNOTE=C7,CENT=0, LPITCH=A5, HPITCH=G8>
+;		
+;       	
+;INS24: ;ins24
+;;	DEFADSR <A=0, D=0.7, S=0, R=0.15>
+;;	DEFROOT	"WB_024_NylonGuitar_B4_M"<UNOTE=B3,CENT=-3, LPITCH=E1, HPITCH=D7>	
+;
+;
+;INS25:  ;ins26
+;;        DEFADSR <A=0, D=0.5, S=0, R=0.1>
+;;	DEFROOT "WB_026_JazzGuitar_Eb5_M" <UNOTE=D#4, CENT=-4, LPITCH=A1, HPITCH=F7>
+;	
+;	
+;INS27:  ;ins33
+;;	DEFADSR <A=0, D=0.75, S=0.25, R=0.1>
+;;	DEFROOT	"WB_033_FingerBass_Ab4_M"<UNOTE=G#3,CENT=-3, LPITCH=B0, HPITCH=G6>
+;	
+;
+;INS26:  ;ins26
+;;	DEFADSR <A=0, D=0.7, S=0, R=0.15>
+;;	DEFROOT "WB_026_JazzGuitar_Eb5_M" <UNOTE=D#4, CENT=-4, LPITCH=A1, HPITCH=F7>
+;		
+;	
+;INS31:  ;ins30
+;;	DEFADSR <A=0, D=1.8, S=0, R=0.15>
+;;	DEFVBTO <Delay=0.3, Depth=0.3, Rate=5>	
+;;	DEFROOT "WB_030_DistortionG_A5_M" <UNOTE=A4, CENT=-7, LPITCH=C2, HPITCH=B4>
+;;	DEFROOT "WB_030_DistortionG_D6_M" <UNOTE=D5, CENT=-28, LPITCH=C5, HPITCH=F5>
+;;	DEFROOT "WB_030_DistortionG_G6_M" <UNOTE=G5, CENT=-11, LPITCH=F#5, HPITCH=G7>
+;
+;
+;INS28:  ;ins28
+;;	DEFADSR <A=0, D=0.8, S=0, R=0.1>
+;;	DEFROOT "WB_028_MutedGuitar_G4_M"<UNOTE=G3, CENT=-9, LPITCH=A0, HPITCH=G#3>
+;;	DEFROOT "WB_028_MutedGuitar_D5_M"<UNOTE=D4, CENT=-5, LPITCH=A3, HPITCH=G#4>
+;;	DEFROOT "WB_028_MutedGuitar_G5_M"<UNOTE=G4, CENT=-9, LPITCH=A4, HPITCH=G7>
+;	
+;
+;INS29:  ;ins30
+;;        DEFADSR <A=0, D=1, S=0, R=0.07>
+;;	DEFVBTO <Delay=0.3, Depth=0.3, Rate=5>	
+;;	DEFROOT "WB_030_DistortionG_A5_M" <UNOTE=A4, CENT=-7, LPITCH=C2, HPITCH=B4>
+;;	DEFROOT "WB_030_DistortionG_D6_M" <UNOTE=D5, CENT=-28, LPITCH=C5, HPITCH=F5>
+;;	DEFROOT "WB_030_DistortionG_G6_M" <UNOTE=G5, CENT=-11, LPITCH=F#5, HPITCH=G7>
+;
+;       
+;INS30:  ;ins30
+;;        DEFADSR <A=0, D=1.8, S=0, R=0.15>
+;;        DEFVBTO <Delay=0.3, Depth=0.5, Rate=5>	
+;;	DEFROOT "WB_030_DistortionG_A5_M" <UNOTE=A4, CENT=-7, LPITCH=C3, HPITCH=B4>
+;;	DEFROOT "WB_030_DistortionG_D6_M" <UNOTE=D5, CENT=-28, LPITCH=C5, HPITCH=F5>
+;;	DEFROOT "WB_030_DistortionG_G6_M" <UNOTE=G5, CENT=-11, LPITCH=F#5, HPITCH=G7>
+;	
+;
+;INS32:  ;ins32
+;;	DEFADSR <A=0, D=1.6, S=0.1, R=0.1>
+;;	DEFROOT	"WB_032_AcousticBass_G4_M"<UNOTE=G3,CENT=-17, LPITCH=D1, HPITCH=G#4>
+;;	DEFROOT	"WB_032_AcousticBass_E5_M"<UNOTE=E4,CENT=-9, LPITCH=A4, HPITCH=G7>
+;	
+;	
+;INS33:  ;ins33
+;;	DEFADSR <A=0, D=1, S=0.25, R=0.1>
+;;	DEFROOT	"WB_033_FingerBass_Ab4_M"<UNOTE=G#3,CENT=-3, LPITCH=B0, HPITCH=G6>
+;
+;
+;INS34:  ;ins33
+;;	DEFADSR <A=0, D=1.2, S=0.4, R=0.1>
+;;	DEFROOT	"WB_033_FingerBass_Ab4_M"<UNOTE=G#3,CENT=-3, LPITCH=B0, HPITCH=G6>
+;
+;
+;INS35:  ;ins33
+;;	DEFADSR <A=0, D=2.7, S=0, R=0.15>
+;;	DEFVBTO <Delay=0.4, Depth=0.2, Rate=5>
+;;	DEFROOT	"WB_033_FingerBass_Ab4_M"<UNOTE=G#3,CENT=-3, LPITCH=B0, HPITCH=G6>
+;
+;		
+;INS36:  ;ins38
+;;        ;DEFADSR <A=0, D=0, S=1, R=0.1>
+;;        DEFADSR <A=0, D=1.5, S=0, R=0.15>
+;;	DEFROOT	"WB_038_SynthBass_C4_M"<UNOTE=C3,CENT=15, LPITCH=D0, HPITCH=C6>
+;
+;
+;INS37:  ;ins38
+;;	DEFADSR <A=0, D=1.5, S=0, R=0.15>
+;;	DEFROOT	"WB_038_SynthBass_C4_M"<UNOTE=C3,CENT=15, LPITCH=D0, HPITCH=C6>
+;
+;
+;INS38:  
+;
+;INS39:  ;ins38
+;;	DEFADSR <A=0, D=1.5, S=0, R=0.15>
+;;	DEFROOT	"WB_038_SynthBass_C4_M"<UNOTE=C3,CENT=15, LPITCH=D0, HPITCH=C6>
+;
+;	
+;INS40:  ;ins40
+;;	DEFADSR <A=0.1, D=0, S=1, R=0.2>
+;;	DEFROOT	"WB_040_Violin_A5_M"<UNOTE=A4,CENT=0, LPITCH=C2, HPITCH=B4>
+;;	DEFROOT	"WB_040_Violin_C7_M"<UNOTE=C6,CENT=0, LPITCH=C5, HPITCH=G7>
+;
+;
+;INS41:  ;ins40
+;;	DEFADSR <A=0.1, D=0, S=1, R=0.2>
+;;	DEFROOT	"WB_040_Violin_A5_M"<UNOTE=A4,CENT=0, LPITCH=C2, HPITCH=B4>
+;;	DEFROOT	"WB_040_Violin_C7_M"<UNOTE=C6,CENT=0, LPITCH=C5, HPITCH=G7>
+;
+;
+;INS42:  ;ins40
+;;	DEFADSR <A=0.1, D=0, S=1, R=0.2>
+;;	DEFROOT	"WB_040_Violin_A5_M"<UNOTE=A4,CENT=0, LPITCH=C2, HPITCH=B4>
+;;	DEFROOT	"WB_040_Violin_C7_M"<UNOTE=C6,CENT=0, LPITCH=C5, HPITCH=G7>
+;
+;
+;INS43:  ;ins40
+;;	DEFADSR <A=0.1, D=0, S=1, R=0.2>
+;;	DEFROOT	"WB_040_Violin_A5_M"<UNOTE=A4,CENT=0, LPITCH=C2, HPITCH=B4>
+;;	DEFROOT	"WB_040_Violin_C7_M"<UNOTE=C6,CENT=0, LPITCH=C5, HPITCH=G7>
+;
+;        
+;INS44:  ;ins48
+;;	DEFADSR <A=0, D=0, S=1, R=0.5>
+;;	DEFVBTO <Delay=0.3, Depth=0.2, Rate=6>
+;;	DEFROOT	"WB_048_Strings_C5_M"<UNOTE=C4,CENT=0, LPITCH=C2, HPITCH=G#4>
+;;	DEFROOT	"WB_048_Strings_A5_M"<UNOTE=A4,CENT=0, LPITCH=A4, HPITCH=C8>
+;
+;
+;INS48:  ;ins48
+;;    DEFADSR <A=0.05, D=1, S=0.65, R=0.2>
+;;	DEFROOT	"WB_048_Strings_C5_M"<UNOTE=C4,CENT=0, LPITCH=C2, HPITCH=G#4>
+;;	DEFROOT	"WB_048_Strings_A5_M"<UNOTE=A4,CENT=0, LPITCH=A4, HPITCH=C8>
+;
+;
+;INS49:  ;ins48
+;;	DEFADSR <A=0.05, D=0, S=1, R=2.05>
+;;	DEFROOT	"WB_048_Strings_C5_M"<UNOTE=C4,CENT=0, LPITCH=C2, HPITCH=G#4>
+;;	DEFROOT	"WB_048_Strings_A5_M"<UNOTE=A4,CENT=0, LPITCH=A4, HPITCH=C8>
+;
+;
+;INS50:  ;ins48
+;;    DEFADSR <A=0, D=0, S=1, R=0.5>
+;;	DEFROOT	"WB_048_Strings_C5_M"<UNOTE=C4,CENT=0, LPITCH=C2, HPITCH=G#4>
+;;	DEFROOT	"WB_048_Strings_A5_M"<UNOTE=A4,CENT=0, LPITCH=A4, HPITCH=C8>
+;
+;INS51:  ;ins48
+;;	DEFADSR <A=0, D=0, S=1, R=0.5>
+;;	DEFVBTO <Delay=0.2, Depth=0.15, Rate=5>
+;;	DEFROOT	"WB_048_Strings_C5_M"<UNOTE=C4,CENT=0, LPITCH=C2, HPITCH=G#4>
+;;	DEFROOT	"WB_048_Strings_A5_M"<UNOTE=A4,CENT=0, LPITCH=A4, HPITCH=C8>
+;
+;INS45:  ;ins45
+;;	DEFADSR <A=0, D=2.4, S=0, R=1.2>
+;;	DEFROOT	"WB_045_PizziCatoS_E5_M"<UNOTE=E4,CENT=-3, LPITCH=C2, HPITCH=A#4>
+;;	DEFROOT	"WB_045_PizziCatoS_D6_M"<UNOTE=D5,CENT=0, LPITCH=B4, HPITCH=A#5>
+;;	DEFROOT	"WB_045_PizziCatoS_C7_M"<UNOTE=C6,CENT=-9, LPITCH=B5, HPITCH=F8>
+;
+;
+;INS46:  ;ins46
+;;	DEFADSR <A=0, D=1, S=0, R=0.8>
+;;	DEFVBTO <Delay=0.4, Depth=0.1, Rate=5>
+;;	DEFROOT "WB_046_Harp_Ab5_M" <UNOTE=G#4, CENT=-5, LPITCH=A1, HPITCH=G7>
+;	
+;
+;INS47:  ;ins47
+;;	DEFADSR <A=0, D=2, S=0, R=1>
+;;	DEFROOT	"WB_047_Timpani_D5_M"<UNOTE=D4,CENT=0, LPITCH=A1, HPITCH=G7>	
+;		
+;
+;INS52:  ;ins52
+;;        DEFADSR <A=0, D=0, S=1, R=0.25>
+;;	DEFROOT	"WB_052_ChoirAahs_E5_M"<UNOTE=E4,CENT=-7, LPITCH=E2, HPITCH=D7>
+;	
+;
+;INS53:  ;ins53
+;;	DEFADSR <A=0, D=0, S=1, R=0.2>
+;;	DEFROOT	"WB_053_VoiceOohs_F5_M"<UNOTE=F4,CENT=-5, LPITCH=G2, HPITCH=C8>
+;	
+;
+;INS54:  ;ins52
+;;	DEFADSR <A=0, D=0, S=1, R=0.25>
+;;	DEFROOT	"WB_052_ChoirAahs_E5_M"<UNOTE=E4,CENT=-7, LPITCH=E2, HPITCH=D7>
+;	
+;
+;INS55:  ;ins55
+;;	DEFADSR <A=0, D=2, S=0, R=0.5>
+;;	DEFROOT	"WB_055_Hit_C5_M"<UNOTE=C4,CENT=0, LPITCH=A1, HPITCH=F6>    
+;        
+;
+;INS56:  ;ins57
+;;	DEFADSR <A=0, D=0, S=1, R=0.15>
+;;	DEFROOT	"WB_057_Trombone_E4_M"<UNOTE=E3,CENT=-27, LPITCH=C1, HPITCH=G#4>
+;;	DEFROOT	"WB_057_Trombone_C5_M"<UNOTE=C4,CENT=-7, LPITCH=A4, HPITCH=G#5>
+;;	DEFROOT	"WB_057_Trombone_B5_M"<UNOTE=B4,CENT=-31, LPITCH=A5, HPITCH=G7>
+;
+;
+;INS57:  ;ins57
+;;	DEFADSR <A=0, D=0, S=1, R=0.2>
+;;	DEFROOT	"WB_057_Trombone_E4_M"<UNOTE=E3,CENT=-27, LPITCH=C1, HPITCH=G#4>
+;;	DEFROOT	"WB_057_Trombone_C5_M"<UNOTE=C4,CENT=-7, LPITCH=A4, HPITCH=C7>
+;
+;
+;INS58:  ;ins57
+;;	DEFADSR <A=0, D=0, S=1, R=0.2>
+;;	DEFVBTO <Delay=0.35, Depth=0.1, Rate=5>
+;;	DEFROOT	"WB_057_Trombone_E4_M"<UNOTE=E3,CENT=-27, LPITCH=C1, HPITCH=E6>
+;	
+;
+;INS59:  ;ins59
+;;	DEFADSR <A=0, D=0, S=1, R=0.1>
+;;	DEFROOT	"WB_059_MutedTrumpet_Eb6_M"<UNOTE=D#5,CENT=-49, LPITCH=A2, HPITCH=C7>
+;	
+;
+;INS60:  ;ins60
+;;	DEFADSR <A=0, D=0, S=1, R=0.15>
+;;	DEFROOT	"WB_060_FrenchHorn_Ab5_M"<UNOTE=G#4,CENT=-23, LPITCH=G2, HPITCH=F6>
+;	
+;
+;INS61:  ;ins61
+;;	DEFADSR <A=0, D=0, S=0.9, R=0.1>
+;;	DEFVBTO <Delay=0.05, Depth=0.1, Rate=5>
+;;	DEFROOT	"WB_061_BrassSection_C5_M"<UNOTE=C4, CENT=-3, LPITCH=C1, HPITCH=G7>
+;	
+;
+;INS62:  ;ins61
+;;	DEFADSR <A=0, D=0, S=1, R=0.15>
+;;	DEFROOT	"WB_061_BrassSection_C5_M"<UNOTE=C4, CENT=-3, LPITCH=C1, HPITCH=G7>
+;	
+;
+;INS63:  ;ins61
+;;	DEFADSR <A=0, D=0, S=1, R=0.15>
+;;	DEFVBTO <Delay=0.4, Depth=0.1, Rate=5>
+;;	DEFROOT	"WB_061_BrassSection_C5_M"<UNOTE=C4, CENT=-3, LPITCH=C1, HPITCH=G7>
+;	
+;
+;INS64:  ;ins64
+;;	DEFADSR <A=0, D=1.2, S=0.7, R=0.3>
+;;	DEFROOT	"WB_064_SopranoSax_C6_M"<UNOTE=C5, CENT=-27, LPITCH=C2, HPITCH=G#5>
+;;	DEFROOT	"WB_064_SopranoSax_Db7_M"<UNOTE=C#6, CENT=-36, LPITCH=A5, HPITCH=C8>
+;	
+;
+;INS65:  ;ins66
+;;	DEFADSR <A=0, D=0, S=1, R=0.15>
+;;	DEFROOT	"WB_066_TenorSax_E5_M"<UNOTE=E4,CENT=-27, LPITCH=C1, HPITCH=G#4>
+;;	DEFROOT	"WB_066_TenorSax_A5_M"<UNOTE=A4,CENT=-14, LPITCH=A4, HPITCH=B4>
+;;	DEFROOT	"WB_066_TenorSax_Eb6_M"<UNOTE=D#5,CENT=0, LPITCH=C5, HPITCH=C7>
+;
+;
+;INS66:  ;ins66
+;;	DEFADSR <A=0, D=0, S=1, R=0.15>
+;;	DEFVBTO <Delay=0.4, Depth=0.08, Rate=5>
+;;	DEFROOT	"WB_066_TenorSax_E5_M"<UNOTE=E4,CENT=-27, LPITCH=C1, HPITCH=G#4>
+;;	DEFROOT	"WB_066_TenorSax_A5_M"<UNOTE=A4,CENT=-14, LPITCH=A4, HPITCH=B4>
+;;	DEFROOT	"WB_066_TenorSax_Eb6_M"<UNOTE=D#5,CENT=0, LPITCH=C5, HPITCH=C7>
+;
+;
+;INS67:  ;ins66
+;;	DEFADSR <A=0, D=0, S=1, R=0.15>
+;;	DEFVBTO <Delay=0.3, Depth=0.15, Rate=5>
+;;	DEFROOT	"WB_066_TenorSax_E5_M"<UNOTE=E4,CENT=-27, LPITCH=C1, HPITCH=G#4>
+;;	DEFROOT	"WB_066_TenorSax_A5_M"<UNOTE=A4,CENT=-14, LPITCH=A4, HPITCH=B4>
+;;	DEFROOT	"WB_066_TenorSax_Eb6_M"<UNOTE=D#5,CENT=0, LPITCH=C5, HPITCH=C7>
+;
+;
+;INS68:  ;ins68
+;;	DEFADSR <A=0, D=1.2, S=0.75, R=0.3>
+;;	DEFROOT	"WB_068_Oboe_Bb5_M"<UNOTE=A#4,CENT=-17, LPITCH=C2, HPITCH=D7>
+;
+;
+;INS69:  ;ins68
+;;	DEFADSR <A=0, D=1.2, S=0.75, R=0.3>
+;;	DEFVBTO <Delay=0.4, Depth=0.1, Rate=5>
+;;	DEFROOT	"WB_068_Oboe_Bb5_M"<UNOTE=A#4,CENT=-17, LPITCH=C2, HPITCH=D7>
+;	
+;
+;INS70:  ;ins71
+;;	DEFADSR <A=0, D=0, S=1, R=0.2>
+;;	DEFVBTO <Delay=0.4, Depth=0.1, Rate=5>
+;;	DEFROOT	"WB_071_Clarinet_Bb5_M"<UNOTE=A#4,CENT=-19, LPITCH=C2, HPITCH=B4>
+;;	DEFROOT	"WB_071_Clarinet_Ab6_M"<UNOTE=G#5,CENT=-7, LPITCH=C5, HPITCH=B5>
+;;	DEFROOT	"WB_071_Clarinet_F7_M"<UNOTE=F6,CENT=-27, LPITCH=C6, HPITCH=F8>
+;
+;
+;INS71:  ;ins71
+;;	DEFADSR <A=0, D=0, S=1, R=0.15>
+;;	DEFROOT	"WB_071_Clarinet_Bb5_M"<UNOTE=A#4,CENT=-19, LPITCH=C2, HPITCH=B4>
+;;	DEFROOT	"WB_071_Clarinet_Ab6_M"<UNOTE=G#5,CENT=-7, LPITCH=C5, HPITCH=B5>
+;;	DEFROOT	"WB_071_Clarinet_F7_M"<UNOTE=F6,CENT=-27, LPITCH=C6, HPITCH=F8>     
+;
+;        
+;INS72:  ;ins73
+;;	DEFADSR <A=0, D=1, S=0.8, R=0.3>
+;;	DEFROOT	"WB_073_Flute_F5_M"<UNOTE=F4, CENT=23, LPITCH=G1, HPITCH=F5>
+;;	DEFROOT	"WB_073_Flute_Gb6_M"<UNOTE=F#5, CENT=-47, LPITCH=F#5, HPITCH=D#6>
+;;	DEFROOT	"WB_073_Flute_E7_M"<UNOTE=E6, CENT=28, LPITCH=E6, HPITCH=G7>
+;;	DEFROOT	"WB_073_Flute_Ab8_M"<UNOTE=G#7, CENT=-33, LPITCH=G#7, HPITCH=F8>
+;
+;
+;INS73:  ;ins73
+;;	DEFADSR <A=0, D=1, S=0.8, R=0.3>
+;;	DEFVBTO <Delay=0.4, Depth=0.12, Rate=5>
+;;	DEFROOT	"WB_073_Flute_F5_M"<UNOTE=F4, CENT=23, LPITCH=G1, HPITCH=F5>
+;;	DEFROOT	"WB_073_Flute_Gb6_M"<UNOTE=F#5, CENT=-47, LPITCH=F#5, HPITCH=D#6>
+;;	DEFROOT	"WB_073_Flute_E7_M"<UNOTE=E6, CENT=28, LPITCH=E6, HPITCH=G7>
+;;	DEFROOT	"WB_073_Flute_Ab8_M"<UNOTE=G#7, CENT=-33, LPITCH=G#7, HPITCH=F8>
+;	
+;
+;INS74:  ;ins74
+;;	DEFADSR <A=0, D=1, S=0.7, R=0.3>
+;;	DEFROOT	"WB_074_Recorder_Gb5_M"<UNOTE=F#4, CENT=11, LPITCH=C2, HPITCH=G5>
+;;	DEFROOT	"WB_074_Recorder_B6_M"<UNOTE=B5, CENT=52, LPITCH=G#5, HPITCH=G6>
+;;	DEFROOT	"WB_074_Recorder_A7_M"<UNOTE=A6, CENT=62, LPITCH=G#6, HPITCH=C8>
+;	
+;
+;INS75:  ;ins75
+;;	DEFADSR <A=0, D=0, S=1, R=0.1>
+;;	DEFROOT	"WB_075_PanFlute_C7_M"<UNOTE=C6,CENT=-21, LPITCH=D3, HPITCH=C8>
+;	
+;
+;INS76:  ;ins77
+;;	DEFADSR <A=0, D=0, S=1, R=0.15>
+;;	DEFROOT	"WB_077_Shakuhachi_F7_M"<UNOTE=F6, CENT=21, LPITCH=C3, HPITCH=C8>
+;
+;
+;INS77:  ;ins77
+;;	DEFADSR <A=0, D=0, S=1, R=0.15>
+;;	DEFVBTO <Delay=0.4, Depth=0.1, Rate=5>
+;;	DEFROOT	"WB_077_Shakuhachi_F7_M"<UNOTE=F6, CENT=21, LPITCH=C3, HPITCH=C8>
+;	
+;
+;INS78:  ;ins78
+;;	DEFADSR <A=0, D=1, S=0.8, R=0.4>
+;;	DEFVBTO <Delay=0, Depth=0.15, Rate=10>
+;;	DEFROOT	"WB_078_Whistle_C8_M"<UNOTE=C7, CENT=-10, LPITCH=D3, HPITCH=C8>
+;	
+;
+;INS79:  ;ins79
+;;	DEFADSR <A=0, D=1, S=0.7, R=0.4>
+;;	DEFROOT	"WB_079_Ocarina_A6_M"<UNOTE=A5,CENT=0, LPITCH=E2, HPITCH=D8>
+;	
+;
+;INS80:  ;ins80
+;;	DEFADSR <A=0, D=0, S=1, R=0.15>
+;;	DEFVBTO <Delay=0.3, Depth=0.1, Rate=5>
+;;	DEFROOT	"WB_080_Square_A5_M"<UNOTE=A4, CENT=20, LPITCH=E2, HPITCH=C8>
+;
+;
+;INS81:  ;ins81
+;;	DEFADSR <A=0, D=0, S=1, R=0.2>
+;;	DEFVBTO <Delay=0.3, Depth=0.1, Rate=5>
+;;	DEFROOT	"WB_081_Sawtooth_C5_M"<UNOTE=C4, CENT=-6, LPITCH=C1, HPITCH=F6>
+;
+;
+;INS82:  ;ins82
+;;	DEFADSR <A=0.03, D=0, S=1, R=0.2>
+;;	DEFROOT	"WB_082_Calliopelead_C5_M"<UNOTE=C4, CENT=-7, LPITCH=G1, HPITCH=F7>	
+;	
+;
+;INS83:	;ins61
+;;	DEFADSR <A=0, D=0, S=1, R=0.15>
+;;	DEFROOT	"WB_061_BrassSection_C5_M"<UNOTE=C4, CENT=-3, LPITCH=C1, HPITCH=G7>
+;
+;
+;INS84:  ;ins30
+;;	DEFADSR <A=0, D=0, S=1, R=0.25>
+;;	DEFVBTO <Delay=0.3, Depth=0.15, Rate=5>
+;;	DEFROOT "WB_030_DistortionG_A5_M" <UNOTE=A4, CENT=-7, LPITCH=C2, HPITCH=B4>
+;;	DEFROOT "WB_030_DistortionG_D6_M" <UNOTE=D5, CENT=-28, LPITCH=C5, HPITCH=F5>
+;;	DEFROOT "WB_030_DistortionG_G6_M" <UNOTE=G5, CENT=-11, LPITCH=F#5, HPITCH=G7>
+;
+;
+;INS85:  ;ins85
+;;	DEFADSR <A=0.05, D=0, S=1, R=0.3>
+;;	DEFROOT "WB_085_Voice_F4_M" <UNOTE=F3, CENT=-15, LPITCH=E1, HPITCH=B6>
+;			
+;
+;INS86:  ;ins86
+;;	DEFADSR <A=0, D=0, S=1, R=0.3>
+;;	DEFROOT	"WB_086_fifths_F5_M"<UNOTE=F4, CENT=0, LPITCH=A1, HPITCH=G7>	
+;
+;
+;INS87:  ;ins26
+;;	DEFADSR <A=0, D=0, S=1, R=0.25>
+;;	DEFVBTO <Delay=0.3, Depth=0.2, Rate=5>
+;;	DEFROOT "WB_026_JazzGuitar_Eb5_M" <UNOTE=D#4, CENT=-4, LPITCH=A1, HPITCH=F7>
+;
+;
+;INS88:  ;ins88
+;;	DEFADSR <A=0, D=0.8, S=0.6, R=0.5>
+;;	DEFROOT "WB_088_NewAge_C6_M"<UNOTE=C5, CENT=0, LPITCH=A2, HPITCH=F8>
+;	
+;
+;INS89:  ;ins89
+;;	DEFADSR <A=0.8, D=0, S=1, R=0.6>
+;;	DEFROOT	"WB_089_Warm_C6_M"<UNOTE=C5,CENT=17, LPITCH=G2, HPITCH=F7>
+;	
+;
+;INS90:
+;  
+;INS91:  ;ins52
+;;        DEFADSR <A=0, D=0.4, S=0.6, R=0.4>
+;;	DEFVBTO <Delay=0.3, Depth=0.3, Rate=5>
+;;	DEFROOT	"WB_052_ChoirAahs_E5_M"<UNOTE=E5,CENT=-7, LPITCH=E3, HPITCH=D8>
+;
+;       
+;INS92:  ;ins4
+;;	DEFADSR <A=0.4, D=0, S=1, R=0.6>
+;;	DEFVBTO <Delay=0.3, Depth=0.2, Rate=5>
+;;	DEFROOT	"WB_004_RhodesPiano_G5_M"<UNOTE=G4,CENT=-9, LPITCH=C2, HPITCH=A#4>
+;;	DEFROOT	"WB_004_RhodesPiano_Ab6_M"<UNOTE=G#5,CENT=-4, LPITCH=B4, HPITCH=F6>
+;;	DEFROOT	"WB_004_RhodesPiano_Db8_M"<UNOTE=C#7,CENT=10, LPITCH=F#6, HPITCH=D8>
+;
+;
+;INS93:  ;ins89
+;;	DEFADSR <A=0.5, D=2, S=0, R=0.7>
+;;	DEFVBTO <Delay=0.3, Depth=0.2, Rate=5>
+;;	DEFROOT	"WB_089_Warm_C6_M"<UNOTE=C5,CENT=17, LPITCH=G2, HPITCH=F7>
+;		
+;
+;INS94:  ;ins85
+;;	DEFADSR <A=0, D=0, S=1, R=0.5>
+;;	DEFROOT "WB_085_Voice_F4_M" <UNOTE=F3, CENT=-15, LPITCH=E1, HPITCH=B6>
+;
+;
+;INS95:  ;ins95
+;;	DEFADSR <A=0.4, D=0, S=1, R=0.7>
+;;	DEFVBTO <Delay=0.3, Depth=0.3, Rate=5>
+;;	DEFROOT	"WB_095_Sweep_Ab5_M"<UNOTE=G#4,CENT=-23, LPITCH=G2, HPITCH=F7>
+;
+;
+;INS96:  ;ins96
+;;	DEFADSR <A=0, D=2.4, S=0, R=0.8>
+;;	DEFROOT "WB_096_Rain_G5_M" <UNOTE=G4, CENT=-5, LPITCH=E2, HPITCH=C8>	
+;	
+;
+;INS97:  ;ins97
+;;	DEFADSR <A=0, D=0, S=1, R=0.8>
+;;	DEFROOT	"WB_097_Soundtrack_C5_M"<UNOTE=C4,CENT=-5, LPITCH=D2, HPITCH=G7>
+;	
+;
+;INS98:  ;ins11
+;;        DEFADSR <A=0, D=1, S=0, R=1.4>
+;;	DEFROOT "WB_011_Vibraphone_E5_M"<UNOTE=E4,CENT=3, LPITCH=F1, HPITCH=G#4>
+;;	DEFROOT "WB_011_Vibraphone_E6_M"<UNOTE=E5,CENT=6, LPITCH=A4, HPITCH=D8>
+;	
+;	
+;INS99:  ;ins24
+;;	DEFADSR <A=0, D=0, S=1, R=0.4>
+;;	DEFVBTO <Delay=0.3, Depth=0.15, Rate=5>
+;;	DEFROOT	"WB_024_NylonGuitar_B4_M"<UNOTE=B3,CENT=-3, LPITCH=E1, HPITCH=D7>
+;	
+;
+;INS100: ;ins88 
+;;        DEFADSR <A=0, D=0.8, S=0.6, R=0.65>
+;;	DEFROOT "WB_088_NewAge_C6_M"<UNOTE=C5, CENT=0, LPITCH=A2, HPITCH=F8>
+;	
+;	
+;INS101: ;ins4
+;;        DEFADSR <A=0.4, D=0, S=1, R=0.6>
+;;	DEFVBTO <Delay=0.3, Depth=0.2, Rate=5>
+;;	DEFROOT	"WB_004_RhodesPiano_G5_M"<UNOTE=G4,CENT=-9, LPITCH=C2, HPITCH=A#4>
+;;	DEFROOT	"WB_004_RhodesPiano_Ab6_M"<UNOTE=G#5,CENT=-4, LPITCH=B4, HPITCH=F6>
+;;	DEFROOT	"WB_004_RhodesPiano_Db8_M"<UNOTE=C#7,CENT=10, LPITCH=F#6, HPITCH=D8>
+;	
+;
+;INS102: ;ins85
+;;	DEFADSR <A=0, D=0, S=1, R=1>
+;;	DEFROOT "WB_085_Voice_F4_M" <UNOTE=F3, CENT=-15, LPITCH=E1, HPITCH=B6>
+;	
+;
+;INS103: ;ins103
+;;	DEFADSR <A=0, D=0, S=1, R=0.8>
+;;	DEFVBTO <Delay=0.3, Depth=0.25, Rate=5>
+;;	DEFROOT	"WB_103_SciFi_C5_M"<UNOTE=C4,CENT=-5, LPITCH=G1, HPITCH=G#4>
+;;	DEFROOT	"WB_103_SciFi_Eb6_M"<UNOTE=D#5,CENT=-12, LPITCH=A4, HPITCH=G7>
+;		
+;
+;INS104: ;ins105
+;;	DEFADSR <A=0, D=2.4, S=0, R=0.6>	
+;;	DEFROOT	"WB_105_Banjo_B4_M"<UNOTE=B3,CENT=-21, LPITCH=B1, HPITCH=F4>
+;;	DEFROOT	"WB_105_Banjo_Gb5_M"<UNOTE=F#4,CENT=-13, LPITCH=F#4, HPITCH=C5>
+;;	DEFROOT	"WB_105_Banjo_B5_M"<UNOTE=B4,CENT=-25, LPITCH=C#5, HPITCH=G7>
+;
+;
+;INS105: ;ins105
+;;	DEFADSR <A=0, D=1.8, S=0, R=0.3>
+;;	DEFROOT	"WB_105_Banjo_B4_M"<UNOTE=B3,CENT=-21, LPITCH=B1, HPITCH=F4>
+;;	DEFROOT	"WB_105_Banjo_Gb5_M"<UNOTE=F#4,CENT=-13, LPITCH=F#4, HPITCH=C5>
+;;	DEFROOT	"WB_105_Banjo_B5_M"<UNOTE=B4,CENT=-25, LPITCH=C#5, HPITCH=G7>
+;
+;
+;INS106: ;ins105
+;;	DEFADSR <A=0, D=1.6, S=0, R=0.4>
+;;	DEFVBTO <Delay=0.3, Depth=0.15, Rate=5>
+;;	DEFROOT	"WB_105_Banjo_B4_M"<UNOTE=B3,CENT=-21, LPITCH=B1, HPITCH=F4>
+;;	DEFROOT	"WB_105_Banjo_Gb5_M"<UNOTE=F#4,CENT=-13, LPITCH=F#4, HPITCH=C5>
+;;	DEFROOT	"WB_105_Banjo_B5_M"<UNOTE=B4,CENT=-25, LPITCH=C#5, HPITCH=G7>
+;	
+;
+;INS107: ;ins107
+;;	DEFADSR <A=0, D=3, S=0, R=1.5>
+;;	DEFROOT	"WB_107_Koto_C6_M"<UNOTE=C5, CENT=-13, LPITCH=E2, HPITCH=C8>
+;	
+;       
+;INS108: ;ins13
+;;	DEFADSR <A=0, D=2.5, S=0, R=1>
+;;	DEFVBTO <Delay=0.3, Depth=0.4, Rate=5>
+;;	DEFROOT	"WB_013_Xylophone_C6_M"<UNOTE=C5,CENT=-5, LPITCH=G2, HPITCH=F7>	
+;
+;
+;INS109: ;ins109
+;;	DEFADSR <A=0, D=0, S=1, R=0.15>
+;;	DEFROOT	"WB_109_Bagpipe_C6_M"<UNOTE=C5, CENT=7, LPITCH=D2, HPITCH=C7>
+;	
+;
+;INS110: ;103
+;;	DEFADSR <A=0, D=0, S=1, R=0.2>
+;;	DEFVBTO <Delay=0.3, Depth=0.1, Rate=5>
+;;	DEFROOT	"WB_103_SciFi_C5_M"<UNOTE=C4,CENT=-5, LPITCH=G1, HPITCH=G#4>
+;;	DEFROOT	"WB_103_SciFi_Eb6_M"<UNOTE=D#5,CENT=-12, LPITCH=A4, HPITCH=G7>
+;	
+;
+;INS111: ;ins64
+;;	DEFADSR <A=0, D=0, S=1, R=0.15>
+;;	DEFVBTO <Delay=0.3, Depth=0.15, Rate=5>
+;;	DEFROOT	"WB_064_SopranoSax_C6_M"<UNOTE=C5, CENT=-27, LPITCH=C2, HPITCH=G#5>
+;;	DEFROOT	"WB_064_SopranoSax_Db7_M"<UNOTE=C#6, CENT=-36, LPITCH=A5, HPITCH=C8>
+;
+;
+;INS113: ;ins113
+;;	DEFADSR <A=0, D=1.8, S=0, R=0.4>
+;;	DEFROOT	"WB_113_Agogo_C5_M"<UNOTE=C4,CENT=0, LPITCH=G1, HPITCH=C7>
+;
+;INS114: ;ins114
+;;	DEFADSR <A=0, D=2.1, S=0, R=0.7>
+;;	DEFROOT	"WB_114_SteelDrums_C6_M"<UNOTE=C5,CENT=-8, LPITCH=G2, HPITCH=F7>
+;	
+;
+;INS115: ;ins115
+;;	DEFADSR <A=0, D=1.8, S=0, R=0.4>
+;;	DEFROOT	"WB_115_Woodblock_C5_M"<UNOTE=C4,CENT=0, LPITCH=G1, HPITCH=F6>
+;	
+;
+;INS116: ;ins47
+;;	DEFADSR <A=0, D=1.8, S=0, R=0.4>
+;;	DEFROOT	"WB_047_Timpani_D5_M"<UNOTE=C4,CENT=0, LPITCH=G1, HPITCH=F6>
+;	
+;
+;INS117: ;ins117
+;;	DEFADSR <A=0, D=1.8, S=0, R=0.4>
+;;	DEFROOT	"WB_117_MelodicTom_C5_M"<UNOTE=C4,CENT=0, LPITCH=D2, HPITCH=C7>
+;
+;
+;INS118: ;ins118
+;;	DEFADSR <A=0, D=1.8, S=0, R=0.4>
+;;	DEFROOT	"WB_118_SynthDrum_C5_M"<UNOTE=C4,CENT=0, LPITCH=D2, HPITCH=C7>	
+;
+;
+;INS119: ;ins119
+;;	DEFADSR <A=0, D=0, S=1, R=0.2>
+;;	DEFROOT	"WB_119_ReverseCymbal_C5_M"<UNOTE=C4, CENT=0, LPITCH=D2, HPITCH=C7>
+;
+;INS120:
+;	
+;INS121: ;ins121
+;  	DEFADSR <A=0, D=0.5, S=0, R=0.1>
+;	DEFROOT	"WB_121_GNoise_C5_M"<UNOTE=C4,CENT=0, LPITCH=G1, HPITCH=C6>
+;
+;INS122: ;ins122
+;	DEFADSR <A=0, D=1, S=0, R=3>
+;	DEFROOT	"WB_122_Seashore_C5_M"<UNOTE=C4,CENT=0, LPITCH=G1, HPITCH=F6>
+;
+;INS123:	;ins123
+;	DEFADSR <A=0, D=3, S=0, R=0.5>
+;	;DEFROOT	"WB_123_BirdTweet_C5_M"<UNOTE=C4,CENT=0, LPITCH=G1, HPITCH=F7>
+;	DEFROOT	"duck"<UNOTE=A#3,CENT=10, LPITCH=G2, HPITCH=C7>	
+;	
+;
+;INS124: ;ins124
+;	DEFADSR <A=0, D=0, S=1, R=0.33>
+;	;DEFROOT	"WB_124_TelephoneRing_G5_M"<UNOTE=G4,CENT=0, LPITCH=A1, HPITCH=G7>
+;	DEFROOT	"FROG"<UNOTE=A#3,CENT=29, LPITCH=G2, HPITCH=C7>
+;	
+;
+;INS125:
+;
+;INS126: ;ins121
+;  	DEFADSR <A=0, D=0.5, S=0, R=0.1>
+;	;DEFROOT	"WB_121_GNoise_C5_M"<UNOTE=C4,CENT=0, LPITCH=G1, HPITCH=C6>
+;	DEFROOT	"Bird"<UNOTE=A#3,CENT=-40, LPITCH=G2, HPITCH=C7>
+;
+;
+;INS127: ;ins127
+;  	DEFADSR <A=0, D=2.5, S=0, R=0.5>
+;	;DEFROOT	"WB_127_GunShot_C5_M"<UNOTE=C4,CENT=0, LPITCH=B1, HPITCH=A6>
+;	DEFROOT	"DOG"<UNOTE=F#3,CENT=-18, LPITCH=G2, HPITCH=C7>
+
+
+
+;=============================
+;	Drum instrument
+;=============================
+
+;Drum35: ;Drum35
+;	DEFDRUM	"WB_35_ABassDrum_M"<SR=12000>
+;
+;Drum36: ;Drum35
+;	DEFDRUM	"WB_35_ABassDrum_M"<SR=16000>
+;	
+;Drum38: ;ins118
+;	DEFDRUM	"WB_118_SynthDrum_C5_M"<SR=22050>
+;
+;Drum40: ;ins118
+;	DEFDRUM	"WB_118_SynthDrum_C5_M"<SR=24000>
+;
+;Drum42: ;Drum42
+;	DEFDRUM	"WB_42_CHighHat_M"<SR=22050>
+;
+;Drum44: ;Drum42
+;	DEFDRUM	"WB_42_CHighHat_M"<SR=24000>
+;
+;Drum46: ;Drum46
+;        DEFDRUM	"WB_46_OHighHat_M"<SR=22050>
+;
+;Drum74: ;Drum46
+;	DEFDRUM	"WB_46_OHighHat_M"<SR=16000>              	
+;
+;Drum48: ;Drum48
+;	DEFDRUM	"Wb_48_Tom_M"<SR=18000>
+;
+;Drum50: ;Drum48
+;	DEFDRUM	"Wb_48_Tom_M"<SR=20000>
+;
+;Drum41: ;Drum48
+;	DEFDRUM	"Wb_48_Tom_M"<SR=8000>
+;
+;Drum43: ;Drum48
+;	DEFDRUM	"Wb_48_Tom_M"<SR=16000>
+;
+;Drum45: ;Drum48
+;	DEFDRUM	"Wb_48_Tom_M"<SR=11025>
+;
+;Drum47: ;Drum48
+;	DEFDRUM	"Wb_48_Tom_M"<SR=14000>
+;
+;Drum49: ;Drum49
+;	DEFDRUM	"WB_49_Crashcymbal_M"<SR=22050>
+;
+;Drum55: ;Drum49
+;	DEFDRUM	"WB_49_Crashcymbal_M"<SR=20000>
+;
+;Drum57: ;Drum49
+;	DEFDRUM	"WB_49_Crashcymbal_M"<SR=24000>
+;
+;Drum51: ;Drum51
+;	DEFDRUM	"WB_51_Ridecymbal_M"<SR=22050> 
+;
+;Drum52: ;Drum52
+;	DEFDRUM	"WB_52_Chinesecymbal_M"<SR=12000> ;original Fs=16K
+;
+;Drum53: ;Drum52
+;	DEFDRUM	"WB_52_Chinesecymbal_M"<SR=24000>
+;
+;Drum59: ;Drum52
+;	DEFDRUM	"WB_52_Chinesecymbal_M"<SR=24000>
+;	
+;Drum39: ;Drum39
+;        DEFDRUM	"WB_39_HandClap_M"<SR=24000>
+;
+;Drum54: ;Drum54
+;	DEFDRUM	"WB_54_Tambourine_M"<SR=22050>
+;	
+;Drum58: ;Drum58
+;	DEFDRUM	"WB_58_Vibraslap_M"<SR=16000>
+;
+;Drum62: ;Drum62
+;	DEFDRUM	"WB_62_MuteConga_M"<SR=18000>
+;
+;Drum63: ;Drum63
+;	DEFDRUM	"WB_63_OpenConga_M"<SR=20000>
+;
+;Drum64: ;Drum63
+;	DEFDRUM	"WB_63_OpenConga_M"<SR=12000>
+;
+;Drum65: ;ins47
+;	DEFDRUM	"WB_047_Timpani_D5_M"<SR=16000>	
+;
+;Drum66: ;ins47
+;	DEFDRUM	"WB_047_Timpani_D5_M"<SR=12000>
+;
+;Drum69: ;Drum69
+;	DEFDRUM	"WB_69_Cabasa_M"<SR=12000>	
+;
+;Drum70: ;Drum69
+;	DEFDRUM	"WB_69_Cabasa_M"<SR=16000>	
+;
+;Drum73: ;Drum69
+;	DEFDRUM	"WB_69_Cabasa_M"<SR=20000>	
+;
+;Drum37: ;Drum37
+;	DEFDRUM	"WB_37_SideStick_M"<SR=8000> 
+;
+;Drum56: ;Drum56
+;	DEFDRUM	"WB_56_Cowbell_M"<SR=20000>
+;
+;Drum67: ;ins113
+;	DEFDRUM	"WB_113_Agogo_C5_M"<SR=16000> ;High_ Agogo
+;
+;Drum68: ;ins113
+;	DEFDRUM	"WB_113_Agogo_C5_M"<SR=12000> ;Low_Agogo
+;
+;Drum75: ;Drum75
+;	DEFDRUM	"WB_75_Claves_M"<SR=11025>
+;
+;Drum76: ;ins115
+;	DEFDRUM	"WB_115_Woodblock_C5_M"<SR=18000>
+;
+;Drum77: ;ins115
+;	DEFDRUM	"WB_115_Woodblock_C5_M"<SR=12000>
+;
+;Drum60: ;Drum60
+;	DEFDRUM	"WB_60_Bongo_M"<SR=22000>
+;
+;Drum61: ;Drum60
+;	DEFDRUM	"WB_60_Bongo_M"<SR=11025>
+;
+;Drum71: ;Drum71
+;	DEFDRUM	"WB_71_Whistle_M"<SR=24000>
+;
+;Drum72: ;Drum71
+;	DEFDRUM	"WB_71_Whistle_M"<SR=14000>
+;
+;Drum78: ;Drum78
+;	DEFDRUM	"WB_78_Cuica_M"<SR=16000>
+;
+;Drum79: ;Drum78
+;	DEFDRUM	"WB_78_Cuica_M"<SR=10000>
+;
+;Drum80: ;Drum80
+;	DEFDRUM	"WB_80_Triangle_M"<SR=22050>
+;
+;Drum81: ;Drum81
+;        DEFDRUM	"WB_81_Triangle_M"<SR=22050>
+
+

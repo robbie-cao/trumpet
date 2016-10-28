@@ -138,9 +138,7 @@ void SPD_WakeUp_RTC(void)
 	      PA->DOUT = (PA->DOUT&~LED_INDICATE)| 0;
 	    }    	  
 		while(UART_GET_TX_EMPTY(UART0)==0);
-        CLK_StandbyPowerDown();	  
-	__wfi();
-	__isb(0);	
+        CLK_StandbyPowerDown();	  	
 	}
 	else
 		SBRAM->D[1] = 0;
@@ -229,8 +227,6 @@ menu:
 		printf("\n\n   Enter Deep Power Down! Please Prees WAKEUP pin to wake up.");
 		while(UART_GET_TX_EMPTY(UART0)==0);
 		CLK_DeepPowerDown(CLK_DPDWAKEUP_PIN,0);
-		__wfi();
-		__isb(0);
 	}
 	else if( (u8Option == 'q') || (u8Option == 'Q') )
     {                                

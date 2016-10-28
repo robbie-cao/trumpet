@@ -1,0 +1,8 @@
+
+enum Audio_ID_Table
+{
+	SPEECH_JAMES_8K=0,	//NUV53
+	SPEECH_LEFTRIGHT_8K=1,	//NUV53
+};
+#define AUDIOSYN_SOUND_MAX_ID	1
+

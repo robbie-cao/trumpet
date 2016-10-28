@@ -1,0 +1,12 @@
+
+enum Audio_ID_Table
+{
+	MIDISYN_LONGVACATION_P10=0,	//MID
+	MIDISYN_STRINGS_P8=1,	//MID
+	MIDISYN_TWELVEDAYSOFCHRISTMAS_P11=2,	//MID
+};
+#define AUDIOSYN_SOUND_MAX_ID	2
+
+/* WTB data address is in AudioInfoRom file */
+#define MIDISYN_WTBOFFSET	16664
+

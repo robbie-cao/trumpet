@@ -1,0 +1,55 @@
+; UID file provides user to define play equation, and speech that will be used in program
+
+
+[Equation]
+; ===================================================================
+; The equation links some speech one by one.For each speech, there are
+; some parameters affecting,playback like volume, speech's sample rate,
+; and number of times to repeat.
+; Syntax
+; 	DEFEQU equation_name <ext= 0, equ="Play equation content">
+;
+; Description
+;	equation_name: A given equation name which will be played in program.
+;	ext: Reserved for future use, set it to 0 now.
+;	equ: "Play equation content".
+;		 "equation content"--->
+;		 	play sentence A + play sentence B + ...
+;		 	where "+":Link the play sentences in series.
+;		 "Play sentence"--->
+;		 	1.N_times * file_name
+;		 	where "N_times": number of times to repeat. 0 means endless.
+;			2.<sr=sample rate>
+;			where "sr": change original sample rate for desired audio.
+; ===================================================================
+defequ EQU5<ext=0, equ="Speech_LeftRight_12K+Sound_Canon_12K+MidiSyn_LongVacation_P10">
+defequ EQU4<ext=0, equ="Sound_Canon_12K<sr=16000>+MidiSyn_LongVacation_P10">
+defequ EQU3<ext=0, equ="Sound_Canon_12K<sr=16000>+3*Speech_LeftRight_12K+[2000MSEC]+Sound_Canon_12K">
+defequ EQU2<ext=0, equ="Speech_LeftRight_12K+[2000MSEC]+Sound_Canon_12K">
+defequ EQU1<ext=0, equ="5*Speech_LeftRight_12K">
+defequ EQU0<ext=0, equ="Sound_Canon_12K+Speech_LeftRight_12K">
+
+[Audio]
+; ===================================================================
+; All speech files and files in play equation, should be defined here
+; Syntax
+; 	DEFAUD file_name < ext= 0, format= XXX , bitrate=Y.Y>
+;
+; Description
+;	file_name: The speech file name (without extention name) which will be played in program.
+;	ext: Reserved for future use, set it to 0 now.
+;	format: audio format will be stored in storage
+;		"MD4", "P16", "LP8", "NUS", "NUO", "NUL", "NUV" for speech
+;		"MID" is for Midi.
+;	bitrate: encoded bits for one sample
+;		Range of NUS: 1.5~3.0 bits
+;		Range of NUO: 0.8~2.0 bits
+;		Range of NUL: 0.5~3.0 bits
+;		Range of NUV: 0.3, 0.7, and 0.8
+; ===================================================================
+defaud MidiSyn_LongVacation_P10<ext=0, format=MID>
+defaud Speech_LeftRight_12K <ext=0, format=MD4>
+defaud Sound_Canon_12K <ext=0, format=LP8>
+
+
+
