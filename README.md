@@ -69,6 +69,12 @@ The ISD9160 embeds a CortexTM-M0 core running up to 50 MHz with 145K-byte of non
   * To output log into UART, remove **DEBUG_ENABLE_SEMIHOST** define in **Project -> Options for Target -> C/C++ -> Preprocessor Symbols**
   * With **DEBUG_ENABLE_SEMIHOST** defined, check log in Keil MDK in debug mode at **View -> Serial Windows -> UART #1**
 
+## Software
+
+### Architecture
+
+![](Docs/nuvoice_framework.png)
+
 ## Reference
 
 - http://www.nuvoton.com/hq/products/application-specific-socs/arm-based-audio/aui-enablers-series/isd9160
