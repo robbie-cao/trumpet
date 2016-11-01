@@ -32,6 +32,8 @@ The ISD9160 embeds a CortexTM-M0 core running up to 50 MHz with 145K-byte of non
 
 ## Setup
 
+![](Docs/build_tools.png)
+
 ### BSP
 
 - http://www.nuvoton.com/hq/resource-download.jsp?tp_GUID=SW0720140910133748
@@ -39,6 +41,8 @@ The ISD9160 embeds a CortexTM-M0 core running up to 50 MHz with 145K-byte of non
 ### Environment
 
 - Keil MDK-ARM or IAR Embedded Workbench
+
+![](Docs/build_steps.png)
 
 ### Driver
 
