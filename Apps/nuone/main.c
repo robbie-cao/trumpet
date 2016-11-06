@@ -47,6 +47,7 @@ S_APP g_sApp;
 
 #ifdef NUONE_ATC
 volatile uint8_t g_u8AtcCmd = 0;
+volatile uint8_t g_u8AtcCmd2 = 0;
 uint32_t g_u32AtcParam;
 
 extern BOOL App_StartPlay(void);
@@ -100,6 +101,7 @@ UINT8 SPIFlash_Initiate(void)
 	return 1;
 }
 
+#ifdef NUONE_ATC
 void ATC_NUONE_CHECK(void)
 {
 	if (!g_u8AtcCmd) {
@@ -179,6 +181,33 @@ void ATC_NUONE_CHECK(void)
 	}
 }
 
+void ATC_PLAYBACK_CHECK(void)
+{
+	uint8_t ch = 0;
+	uint16_t idx = 0;
+
+	if (!g_u8AtcCmd2) {
+		return ;
+	}
+
+	g_u8AtcCmd2 = 0;
+
+	ch = (g_u32AtcParam >> 24) & 0xFF;
+	idx = g_u32AtcParam & 0xFFFF;
+	printf("PLAY, Ch - %d, Idx - %d\r\n", ch, idx);
+	// Check if idx is in range
+	if (idx >= g_sApp.u32TotalAudioNum) {
+		// TODO
+	}
+	if ((g_u8AppCtrl & APPCTRL_PLAY)) {
+		App_StopPlay();
+	}
+	// Set PlayID to the idx which is going to play
+	g_sApp.u32PlayID = idx;
+	App_StartPlay();
+}
+#endif
+
 //---------------------------------------------------------------------------------------------------------
 // Main Function
 //---------------------------------------------------------------------------------------------------------
@@ -251,7 +280,11 @@ INT32 main()
 									// Default touch key handler is "Default_KeyHandler()"
 									// The touch key configurations are defined in "ConfigIO.h".
 
+#ifdef NUONE_ATC
 		ATC_NUONE_CHECK();
+
+		ATC_PLAYBACK_CHECK();
+#endif
 	}
 }
 

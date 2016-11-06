@@ -19,6 +19,7 @@
 
 #ifdef NUONE_ATC
 extern volatile uint8_t g_u8AtcCmd;
+extern volatile uint8_t g_u8AtcCmd2;
 extern uint32_t g_u32AtcParam;
 #endif
 
@@ -34,6 +35,7 @@ enum {
     MUA_AT_CMD_NAME,
     MUA_AT_CMD_VOL,
     MUA_AT_CMD_NUO,
+    MUA_AT_CMD_PLAY,
 
     MUA_AT_CMD_TOTAL
 };
@@ -49,6 +51,7 @@ Keyword_t muaAtCmdList[] =
     { MUA_AT_CMD_NAME , CMD_STR("NAME~s*=~s*(~d+)~s*,~s*(~w+)")                    },
     { MUA_AT_CMD_VOL  , CMD_STR("VOL~s*=~s*(~d+),~s*(~d+)")                        },
     { MUA_AT_CMD_NUO  , CMD_STR("NUO~s*=~s*(~d+)")                                 },
+    { MUA_AT_CMD_PLAY , CMD_STR("PLAY~s*=~s*(~d+),~s*(~d+)")                       },
 
     { 0xFF            , 0                                                          }
 };
@@ -59,6 +62,7 @@ void ATC_Handler(uint8_t *buf)
     ParserToken_t token[9];    //  pattern-matching tokens
     char      tknBuf[32];
     uint16_t    tmpVal;
+    uint16_t    tmpVal2;
     const Keyword_t* kwd;
     Result_t result = RESULT_ERROR;
 
@@ -114,6 +118,17 @@ void ATC_Handler(uint8_t *buf)
 #ifdef NUONE_ATC
                 g_u8AtcCmd = 1;
                 g_u32AtcParam = tmpVal;
+#endif
+                break;
+            case MUA_AT_CMD_PLAY:
+                LOGD_ATC(LOG_TAG, "PLAY\r\n");
+                ParserTknToUInt(&token[0], &tmpVal) ;
+                LOGD_ATC(LOG_TAG, "Val0 : %d\r\n", tmpVal);     // Ch
+                ParserTknToUInt(&token[1], &tmpVal2) ;
+                LOGD_ATC(LOG_TAG, "Val1 : %d\r\n", tmpVal2);    // Idx
+#ifdef NUONE_ATC
+                g_u8AtcCmd2 = 1;
+                g_u32AtcParam = ((tmpVal & 0xFF) << 24) | (tmpVal2 & 0xFFFF);
 #endif
                 break;
             default:
