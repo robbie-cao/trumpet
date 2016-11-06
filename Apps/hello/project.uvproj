@@ -7,7 +7,7 @@
 
   <Targets>
     <Target>
-      <TargetName>Uart</TargetName>
+      <TargetName>hello</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -43,7 +43,7 @@
             <InvalidFlash>1</InvalidFlash>
           </TargetStatus>
           <OutputDirectory>.\obj\</OutputDirectory>
-          <OutputName>Uart</OutputName>
+          <OutputName>hello</OutputName>
           <CreateExecutable>1</CreateExecutable>
           <CreateLib>0</CreateLib>
           <CreateHexFile>0</CreateHexFile>
@@ -345,7 +345,7 @@
               <MiscControls></MiscControls>
               <Define>DEBUG_ENABLE_SEMIHOST</Define>
               <Undefine></Undefine>
-              <IncludePath>..\..\..\..\Library\CMSIS\Include;..\..\..\..\Library\Device\Nuvoton\ISD9100\Include;..\..\..\..\Library\StdDriver\inc</IncludePath>
+              <IncludePath>..\..\BSP\Library\CMSIS\Include;..\..\BSP\Library\Device\Nuvoton\ISD9100\Include;..\..\BSP\Library\StdDriver\inc</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -393,7 +393,7 @@
             <File>
               <FileName>system_ISD9100.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\Library\Device\Nuvoton\ISD9100\Source\system_ISD9100.c</FilePath>
+              <FilePath>..\..\BSP\Library\Device\Nuvoton\ISD9100\Source\system_ISD9100.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -403,7 +403,7 @@
             <File>
               <FileName>main.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\main.c</FilePath>
+              <FilePath>main.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -413,22 +413,22 @@
             <File>
               <FileName>uart.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\Library\StdDriver\src\uart.c</FilePath>
+              <FilePath>..\..\BSP\Library\StdDriver\src\uart.c</FilePath>
             </File>
             <File>
               <FileName>clk.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\Library\StdDriver\src\clk.c</FilePath>
+              <FilePath>..\..\BSP\Library\StdDriver\src\clk.c</FilePath>
             </File>
             <File>
               <FileName>retarget.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\Library\StdDriver\src\retarget.c</FilePath>
+              <FilePath>..\..\BSP\Library\StdDriver\src\retarget.c</FilePath>
             </File>
             <File>
               <FileName>sys.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\Library\StdDriver\src\sys.c</FilePath>
+              <FilePath>..\..\BSP\Library\StdDriver\src\sys.c</FilePath>
             </File>
           </Files>
         </Group>
