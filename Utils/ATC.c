@@ -3,7 +3,7 @@
 
 #include "parser.h"
 
-#include "ISD9160.h"
+#include "ISD9100.h"
 #include "Log.h"
 #include "ATC.h"
 
@@ -17,6 +17,11 @@
 #define LOGD_ATC        __LOGD
 #endif
 
+#ifdef NUONE_ATC
+extern volatile uint8_t g_u8AtcCmd;
+extern uint32_t g_u32AtcParam;
+#endif
+
 #define CMD_STR(str)    "~i~s*AT~s*+~s*"##str##"~s*"
 
 enum {
@@ -28,6 +33,7 @@ enum {
     MUA_AT_CMD_SN,
     MUA_AT_CMD_NAME,
     MUA_AT_CMD_VOL,
+    MUA_AT_CMD_NUO,
 
     MUA_AT_CMD_TOTAL
 };
@@ -42,6 +48,7 @@ Keyword_t muaAtCmdList[] =
     { MUA_AT_CMD_SN   , CMD_STR("SN~s*=~s*(~d+)~s*,~s*(~w+)")                      },
     { MUA_AT_CMD_NAME , CMD_STR("NAME~s*=~s*(~d+)~s*,~s*(~w+)")                    },
     { MUA_AT_CMD_VOL  , CMD_STR("VOL~s*=~s*(~d+),~s*(~d+)")                        },
+    { MUA_AT_CMD_NUO  , CMD_STR("NUO~s*=~s*(~d+)")                                 },
 
     { 0xFF            , 0                                                          }
 };
@@ -99,6 +106,15 @@ void ATC_Handler(uint8_t *buf)
                 break;
             case MUA_AT_CMD_VOL:
                 LOGD_ATC(LOG_TAG, "VOL\r\n");
+                break;
+            case MUA_AT_CMD_NUO:
+                LOGD_ATC(LOG_TAG, "NUO\r\n");
+                ParserTknToUInt(&token[0], &tmpVal) ;
+                LOGD_ATC(LOG_TAG, "Val0 : %d\r\n", tmpVal);
+#ifdef NUONE_ATC
+                g_u8AtcCmd = 1;
+                g_u32AtcParam = tmpVal;
+#endif
                 break;
             default:
                 break;

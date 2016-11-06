@@ -45,6 +45,15 @@ volatile UINT8 g_u8AppCtrl;
 // Application handler.
 S_APP g_sApp;
 
+#ifdef NUONE_ATC
+volatile uint8_t g_u8AtcCmd = 0;
+uint32_t g_u32AtcParam;
+
+extern BOOL App_StartPlay(void);
+extern BOOL App_StopPlay(void);
+extern void App_PowerDown(void);
+#endif
+
 extern void App_Initiate(void);
 extern BOOL App_StopPlay(void);
 extern BOOL App_ProcessPlay(void);
@@ -89,6 +98,85 @@ UINT8 SPIFlash_Initiate(void)
 
 	// The above code can be remove to save code if the flash size is not necessary for this application
 	return 1;
+}
+
+void ATC_NUONE_CHECK(void)
+{
+	if (!g_u8AtcCmd) {
+		return ;
+	}
+
+	g_u8AtcCmd = 0;
+	switch (g_u32AtcParam) {
+		case 0: // PLAY
+			printf("PLAY\r\n");
+			if ((g_u8AppCtrl & APPCTRL_PLAY) == 0) {
+				if (g_sApp.u32TotalAudioNum > 0) {
+					App_StartPlay();
+				}
+			} else {
+				App_StopPlay();
+			}
+			break;
+		case 1: // NEXT
+			printf("NEXT\r\n");
+			if (g_u8AppCtrl & APPCTRL_PLAY) {
+				Playback_StopPlay();
+			}
+
+			if (g_sApp.u32TotalAudioNum > 0) {
+				if ((g_sApp.u32PlayID+=1) >= g_sApp.u32TotalAudioNum) {
+					g_sApp.u32PlayID = 0;
+				}
+
+				App_StartPlay();
+			}
+			break;
+		case 2: // PREV
+			printf("PREV\r\n");
+			if (g_u8AppCtrl & APPCTRL_PLAY) {
+				Playback_StopPlay();
+			}
+
+			if (g_sApp.u32TotalAudioNum > 0) {
+				if (g_sApp.u32PlayID == 0) {
+					g_sApp.u32PlayID = g_sApp.u32TotalAudioNum-1;
+				} else {
+					g_sApp.u32PlayID--;
+				}
+
+				App_StartPlay();
+			}
+			break;
+		case 3: // PAUSE
+			printf("PAUSE\r\n");
+			if ((g_u8AppCtrl&APPCTRL_PAUSE) == 0) {
+				Playback_PauseCtrl(0, TRUE);
+				g_u8AppCtrl |= APPCTRL_PAUSE;
+			} else {
+				Playback_PauseCtrl(0, FALSE);
+				g_u8AppCtrl &= ~APPCTRL_PAUSE;
+			}
+			break;
+		case 4: // STOP
+			printf("STOP\r\n");
+			if (g_u8AppCtrl & APPCTRL_PLAY) {
+				Playback_StopPlay();
+			}
+			break;
+		case 5: // MUTE
+			printf("MUTE\r\n");
+			if ((g_u8AppCtrl&APPCTRL_MUTE) == 0) {
+				Playback_MuteCtrl(0, TRUE);
+				g_u8AppCtrl |= APPCTRL_MUTE;
+			} else {
+				Playback_MuteCtrl(0, FALSE);
+				g_u8AppCtrl &= ~APPCTRL_MUTE;
+			}
+			break;
+		default:
+			break;
+	}
 }
 
 //---------------------------------------------------------------------------------------------------------
@@ -143,10 +231,12 @@ INT32 main()
 
 	while (1)
 	{
-		if ( g_u8AppCtrl&APPCTRL_PLAY )
+		if (g_u8AppCtrl & APPCTRL_PLAY)
 		{
-			if ( App_ProcessPlay() == FALSE )
+			if (App_ProcessPlay() == FALSE)
+			{
 				App_StopPlay();
+			}
 		}
 
 		TRIGGER_KEY_CHECK();		// Check and execute direct trigger key actions defined in "InputKeyActions.c"
@@ -160,6 +250,8 @@ INT32 main()
 		TOUCH_KEY_CHECK();			// Check and execute touch key actions defined in "InputKeyActions.c"
 									// Default touch key handler is "Default_KeyHandler()"
 									// The touch key configurations are defined in "ConfigIO.h".
+
+		ATC_NUONE_CHECK();
 	}
 }
 

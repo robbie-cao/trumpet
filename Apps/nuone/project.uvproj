@@ -343,7 +343,7 @@
             <uThumb>0</uThumb>
             <VariousControls>
               <MiscControls></MiscControls>
-              <Define>__ISD9100__ xDEBUG_ENABLE_SEMIHOST LOG_LEVEL_DEBUG</Define>
+              <Define>__ISD9100__ xDEBUG_ENABLE_SEMIHOST LOG_LEVEL_DEBUG NUONE_ATC</Define>
               <Undefine></Undefine>
               <IncludePath>.;..\..\BSP\Library\Device\Nuvoton\ISD9100\Include;..\..\BSP\Library\Framework\inc;..\..\BSP\Library\IO\inc;..\..\BSP\Library\Audio\inc;..\..\BSP\Library\StdDriver\inc;..\..\BSP\Library\Storage\inc;..\..\BSP\Library\CMSIS\Include;..\..\Common;..\..\Driver;..\..\Utils</IncludePath>
             </VariousControls>
