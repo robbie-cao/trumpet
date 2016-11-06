@@ -6,13 +6,14 @@
 #include <stdint.h>
 #include <string.h>
 
-
+#include "DrvUART.h"
+#if 0
 #include "SYS.h"
-#include "UART.h"
 #include "I2C.h"
 #include "GPIO.h"
 #include "PM.h"
 #include "Flash.h"
+#endif
 
 #include "OP.h"
 #include "Conf.h"

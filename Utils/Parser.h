@@ -51,6 +51,8 @@
 #ifndef __PARSER_H__
 #define __PARSER_H__
 
+#include "mtypes.h"
+
 /** Result Codes */
 typedef enum {
     RESULT_OK = 0,                      ///< 0  Result OK, operation successful

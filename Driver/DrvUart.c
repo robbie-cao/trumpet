@@ -1,5 +1,10 @@
-#include "ISD9160.h"
-#include "UART.h"
+#include <string.h>
+#include <stdio.h>
+
+#include "ISD9100.h"
+
+#include "mtypes.h"
+#include "DrvUart.h"
 #include "ATC.h"
 
 #define USE_DRV_UART_API    1
@@ -11,6 +16,7 @@
 #define LOGD_U              __LOGD
 #endif
 
+#define LOG     printf
 
 #define RXBUFSIZE           64
 
@@ -27,20 +33,23 @@ static uint8_t sPos = 0;
 /*---------------------------------------------------------------------------------------------------------*/
 /* Define functions prototype                                                                              */
 /*---------------------------------------------------------------------------------------------------------*/
-static void UART_INT_HANDLE(uint32_t u32IntStatus);
+
 
 /*---------------------------------------------------------------------------------------------------------*/
-/* UART Callback function                                                                                  */
+/* Interrupt Handler                                                                                       */
 /*---------------------------------------------------------------------------------------------------------*/
-static void UART_INT_HANDLE(uint32_t u32IntStatus)
+void UART0_IRQHandler(void)
 {
     uint8_t bInChar[1] = { 0xFF };
+    uint32_t u32uart0IntStatus;
 
-    if (u32IntStatus & RDAIE) {
+    u32uart0IntStatus = inpw(&UART0->INTSTS) ;
+
+    if (u32uart0IntStatus & RDAIE) {
         /* Get all the input characters */
-        while (UART0->ISR.RDA_IF == 1) {
+        while (UART0->INTSTS & BIT0) { /* RDAIF = 1 */
             /* Get the character from UART Buffer */
-            DrvUART_Read(UART_PORT0, bInChar, 1);
+            UART_Read(UART0, bInChar, 1);
 #if DEBUG_UART
             LOGD(LOG_TAG, "%d - %c\r\n", sPos, bInChar[0]);
 #else
@@ -62,10 +71,10 @@ static void UART_INT_HANDLE(uint32_t u32IntStatus)
         }
     }
 #if 0
-    if (u32IntStatus & THREIE) {
+    if (u32uart0IntStatus & THREIE) {
         // Do something if transmit FIFO register empty
     }
-    if (u32IntStatus & BUFERRIE) {
+    if (u32uart0IntStatus & BUFERRIE) {
         // Do something if Tx or Rx FIFO overflows
     }
 #endif
@@ -74,67 +83,19 @@ static void UART_INT_HANDLE(uint32_t u32IntStatus)
 #endif
 
 /*---------------------------------------------------------------------------------------------------------*/
-/* InitialUART                                                                                             */
+/* Initial UART                                                                                            */
 /*---------------------------------------------------------------------------------------------------------*/
-void InitialUART(void)
+void UART_Init(void)
 {
-#if USE_DRV_UART_API
-    STR_UART_T sParam;
-
-    /* Step 1. Enable and Select UART clock source*/
-    UNLOCKREG();
-    SYSCLK->PWRCON.OSC49M_EN = 1;
-    SYSCLK->PWRCON.OSC10K_EN = 1;
-    SYSCLK->PWRCON.XTL32K_EN = 1;
-    SYSCLK->CLKSEL0.STCLK_S  = 3;   // Use internal HCLK
-
-    SYSCLK->CLKSEL0.HCLK_S   = 0;   /* Select HCLK source as 48MHz */
-    SYSCLK->CLKDIV.HCLK_N    = 0;   /* Select no division          */
-    SYSCLK->CLKSEL0.OSCFSel  = 0;   /* 1 = 32MHz, 0 = 48MHz */
-    LOCKREG();
-
-    /* Step 2. GPIO initial */
-    DrvGPIO_InitFunction(FUNC_UART0);
-
-    /* Step 3. Select UART Operation mode */
-    sParam.u32BaudRate       = 115200;
-    sParam.u8cDataBits       = DRVUART_DATABITS_8;
-    sParam.u8cStopBits       = DRVUART_STOPBITS_1;
-    sParam.u8cParity         = DRVUART_PARITY_NONE;
-    sParam.u8cRxTriggerLevel = DRVUART_FIFO_1BYTES;
-
-    if (DrvUART_Open(UART_PORT0, &sParam) == 0) {
-        printf("\r\n----------------------------------------\r\n");
-
-        /* Step 4. Enable Interrupt and install the call back function */
-
-        DrvUART_EnableInt(
-                UART_PORT0,
-                (/*DRVUART_THREINT |*/ DRVUART_RDAINT),
-                UART_INT_HANDLE
-                );
-    }
-
-#else
-
     /* Reset IP */
-    SYS->IPRSTC2.UART0_RST = 1;
-    SYS->IPRSTC2.UART0_RST = 0;
+    CLK_EnableModuleClock(UART_MODULE);
+    SYS_ResetModule(UART0_RST);
 
-    /* Enable UART clock */
-    SYSCLK->APBCLK.UART0_EN = 1;
+    /* Configure UART0 and set UART0 Baudrate(115200) */
+    UART_Open(UART0, 115200);
 
-    /* Data format */
-    UART0->LCR.WLS = 3;
-
-    /* Configure the baud rate */
-    M32(&UART0->BAUD) = 0x3F0001A8; /* Internal 48MHz, 115200 bps */
-
-
-    /* Multi-Function Pin: Enable UART0:Tx Rx */
-    SYS->GPA_ALT.GPA8 = 1;
-    SYS->GPA_ALT.GPA9 = 1;
-#endif
+    UART_ENABLE_INT(UART0, UART_INTEN_RDAIEN_Msk);
+    NVIC_EnableIRQ(UART0_IRQn);
 }
 
 /* vim: set ts=4 sw=4 tw=0 list : */

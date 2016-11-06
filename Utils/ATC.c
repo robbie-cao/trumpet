@@ -9,7 +9,7 @@
 
 #define LOG_TAG         "AT"
 
-#define DEBUG_ATC       0
+#define DEBUG_ATC       1
 
 #if DEBUG_ATC
 #define LOGD_ATC        LOGD
@@ -32,7 +32,7 @@ enum {
     MUA_AT_CMD_TOTAL
 };
 
-const Keyword_t muaAtCmdList[] =
+Keyword_t muaAtCmdList[] =
 {
     { MUA_AT_CMD_MODE , CMD_STR("MODE~s*=~s*(~d+)")                                },
     { MUA_AT_CMD_PM   , CMD_STR("PM~s*=~s*(~d+)")                                  },
@@ -85,9 +85,9 @@ void ATC_Handler(uint8_t *buf)
                 break;
             case MUA_AT_CMD_RST:
                 LOG("RST\r\n");
-                DrvSYS_Delay(10000);
+                CLK_SysTickDelay(10000);
                 UNLOCKREG();
-                DrvSYS_ResetChip();
+                SYS_ResetChip();
                 // Will never reach here as chip reset
                 LOCKREG();
                 break;

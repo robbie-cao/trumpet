@@ -343,9 +343,9 @@
             <uThumb>0</uThumb>
             <VariousControls>
               <MiscControls></MiscControls>
-              <Define>DEBUG_ENABLE_SEMIHOST</Define>
+              <Define>xDEBUG_ENABLE_SEMIHOST LOG_LEVEL_DEBUG</Define>
               <Undefine></Undefine>
-              <IncludePath>..\..\BSP\Library\CMSIS\Include;..\..\BSP\Library\Device\Nuvoton\ISD9100\Include;..\..\BSP\Library\StdDriver\inc</IncludePath>
+              <IncludePath>..\..\BSP\Library\CMSIS\Include;..\..\BSP\Library\Device\Nuvoton\ISD9100\Include;..\..\BSP\Library\StdDriver\inc;..\..\Common;..\..\Driver;..\..\Utils</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -429,6 +429,31 @@
               <FileName>sys.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\BSP\Library\StdDriver\src\sys.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Driver</GroupName>
+          <Files>
+            <File>
+              <FileName>DrvUart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Driver\DrvUart.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Utils</GroupName>
+          <Files>
+            <File>
+              <FileName>Parser.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Utils\Parser.c</FilePath>
+            </File>
+            <File>
+              <FileName>ATC.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Utils\ATC.c</FilePath>
             </File>
           </Files>
         </Group>

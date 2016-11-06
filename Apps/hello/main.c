@@ -11,7 +11,10 @@
  ******************************************************************************/
 #include <stdio.h>
 #include <string.h>
+
 #include "ISD9100.h"
+
+#include "DrvUart.h"
 
 /* Buffer size, this buffer for uart receive & send data. */
 #define UART_BUF_SIZE      64
@@ -30,8 +33,10 @@ void SYS_Init(void)
     /* Switch HCLK clock source to HXT */
     CLK_SetHCLK(CLK_CLKSEL0_HCLKSEL_HIRC, CLK_CLKSEL0_HIRCFSEL_48M, CLK_CLKDIV0_HCLK(1));
 
+#if 0
     /* Enable IP clock */
     CLK_EnableModuleClock(UART_MODULE);
+#endif
 
     /* Update System Core Clock */
     /* User can use SystemCoreClockUpdate() to calculate SystemCoreClock. */
@@ -56,8 +61,11 @@ int main(void)
     /* Init System, IP clock and multi-function I/O */
     SYS_Init();
 
+#if 0
     /* Init UART to 115200-8n1 for print message */
     UART_Open(UART0, 115200);
+#endif
+    UART_Init();
 
     printf("\n+------------------------------------------------------------------------+\n");
     printf("|                    ISD9100 Uart Demo Sample                            |\n");
@@ -66,9 +74,11 @@ int main(void)
 	
 	while(1)
 	{
+#if 0
 		memset( u8Buffer, '\0', sizeof(u8Buffer) );
 		if( UART_Read( UART0, u8Buffer, sizeof(u8Buffer) ) > 0 )
 			UART_Write( UART0, u8Buffer, sizeof(u8Buffer) );
+#endif
 	}
 }
 

@@ -1,6 +1,6 @@
 #include <ctype.h>
 #include <string.h>
-#include "mua_types.h"
+#include "mtypes.h"
 #include "parser.h"
 
 //-----------------------------------------------------------------------------

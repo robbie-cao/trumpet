@@ -97,7 +97,7 @@ extern "C"
  *    @param   u32BaudRate     Baudrate of UART module
  *
  *    @return  UART baudrate mode0 divider
- *  \hideinitializer 
+ *  \hideinitializer
  *
  */
 #define UART_BAUD_MODE0_DIVIDER(u32SrcFreq, u32BaudRate)    (((u32SrcFreq + (u32BaudRate*8)) / u32BaudRate >> 4)-2)
@@ -109,7 +109,7 @@ extern "C"
  *    @param   u32BaudRate    Baudrate of UART module
  *
  *    @return  UART baudrate mode2 divider
- * \hideinitializer 
+ * \hideinitializer
  */
 #define UART_BAUD_MODE2_DIVIDER(u32SrcFreq, u32BaudRate)    (((u32SrcFreq + (u32BaudRate/2)) / u32BaudRate)-2)
 
@@ -121,7 +121,7 @@ extern "C"
  *    @param   u8Data  Data byte to transmit
  *
  *    @return  None
- * \hideinitializer 
+ * \hideinitializer
  */
 #define UART_WRITE(uart, u8Data)    (uart->DAT = (u8Data))
 
@@ -131,7 +131,7 @@ extern "C"
  *    @param   uart   The base address of UART module.
  *
  *    @return  The oldest data byte in RX FIFO
- * \hideinitializer 
+ * \hideinitializer
  */
 #define UART_READ(uart)    (uart->DAT)
 
@@ -142,7 +142,7 @@ extern "C"
  *    @param    uart    The base address of UART module
  *
  *    @return   Tx empty register value.
- * \hideinitializer 
+ * \hideinitializer
  */
 #define UART_GET_TX_EMPTY(uart)    (uart->FIFOSTS & UART_FIFOSTS_TXEMPTY_Msk)
 
@@ -153,7 +153,7 @@ extern "C"
  *    @param    uart    The base address of UART module
  *
  *    @return   Rx empty register value.
- * \hideinitializer 
+ * \hideinitializer
  */
 #define UART_GET_RX_EMPTY(uart)    (uart->FIFOSTS & UART_FIFOSTS_RXEMPTY_Msk)
 
@@ -163,7 +163,7 @@ extern "C"
  *    @param    uart    The base address of UART module
  *
  *    @return   TE_Flag.
- * \hideinitializer 
+ * \hideinitializer
  */
 #define UART_IS_TX_EMPTY(uart)    ((uart->FIFOSTS & UART_FIFOSTS_TXEMPTYF_Msk) >> UART_FIFOSTS_TXEMPTYF_Pos)
 
@@ -174,7 +174,7 @@ extern "C"
  *    @param    uart    The base address of UART module
  *
  *    @return   None
- *  \hideinitializer 
+ *  \hideinitializer
  */
 #define UART_WAIT_TX_EMPTY(uart)    while(!(((uart->FIFOSTS) & UART_FIFOSTS_TXEMPTYF_Msk) >> UART_FIFOSTS_TXEMPTYF_Pos))
 
@@ -186,7 +186,7 @@ extern "C"
  *    @return
  *            0 : The number of bytes in the RX FIFO is less than the RFITL
  *            1 : The number of bytes in the RX FIFO equals or larger than RFITL
- * \hideinitializer 
+ * \hideinitializer
  */
 #define UART_IS_RX_READY(uart)    ((uart->INTSTS & UART_INTSTS_RDAIF_Msk)>>UART_INTSTS_RDAIF_Pos)
 
@@ -199,7 +199,7 @@ extern "C"
  *    @return
  *            1 = TX FIFO is full
  *            0 = TX FIFO is not full
- * \hideinitializer 
+ * \hideinitializer
  */
 #define UART_IS_TX_FULL(uart)    ((uart->FIFOSTS & UART_FIFOSTS_TXFULL_Msk)>>UART_FIFOSTS_TXFULL_Pos)
 
@@ -211,7 +211,7 @@ extern "C"
  *    @return
  *            1 = RX FIFO is full
  *            0 = RX FIFO is not full
- * \hideinitializer 
+ * \hideinitializer
  *
  */
 #define UART_IS_RX_FULL(uart)    ((uart->FIFOSTS & UART_FIFOSTS_RXFULL_Msk)>>UART_FIFOSTS_RXFULL_Pos)
@@ -223,7 +223,7 @@ extern "C"
  *    @param    uart    The base address of UART module
  *
  *    @return   Tx full register value
- * \hideinitializer 
+ * \hideinitializer
  */
 #define UART_GET_TX_FULL(uart)    (uart->FIFOSTS & UART_FIFOSTS_TXFULL_Msk)
 
@@ -234,7 +234,7 @@ extern "C"
  *    @param    uart    The base address of UART module
  *
  *    @return   Rx full register value
- * \hideinitializer 
+ * \hideinitializer
  */
 #define UART_GET_RX_FULL(uart)    (uart->FIFOSTS & UART_FIFOSTS_RXFULL_Msk)
 
@@ -254,9 +254,9 @@ extern "C"
  *                               - UART_INTEN_RDAIEN_Msk     : Rx ready interrupt
  *
  *    @return    None
- * \hideinitializer 
+ * \hideinitializer
  */
-#define UART_ENABLE_INT(uart, u32eIntSel)    (uart->INTSTS |= (u32eIntSel))
+#define UART_ENABLE_INT(uart, u32eIntSel)    (uart->INTEN |= (u32eIntSel))
 
 
 /**
@@ -273,7 +273,7 @@ extern "C"
  *                               - UART_INTEN_THREIEN_Msk    : Tx empty interrupt
  *                               - UART_INTEN_RDAIEN_Msk     : Rx ready interrupt
  *    @return    None
- * \hideinitializer 
+ * \hideinitializer
  */
 #define UART_DISABLE_INT(uart, u32eIntSel)    (uart->INTEN &= ~ (u32eIntSel))
 
@@ -294,7 +294,7 @@ extern "C"
  *    @return
  *            0 = The specified interrupt is not happened.
  *            1 = The specified interrupt is happened.
- * \hideinitializer 
+ * \hideinitializer
  */
 #define UART_GET_INT_FLAG(uart,u32eIntTypeFlag)    ((uart->INTSTS & (u32eIntTypeFlag))?1:0)
 
@@ -327,7 +327,7 @@ __STATIC_INLINE void UART_SET_RTS(UART_T* uart)
  *
  *    @param    uart    The base address of UART module
  *    @return   None
- * \hideinitializer 
+ * \hideinitializer
  */
 #define UART_RS485_CLEAR_ADDR_FLAG(uart)    (uart->FIFOSTS  |= UART_FIFOSTS_ADDRDETF_Msk)
 
@@ -337,7 +337,7 @@ __STATIC_INLINE void UART_SET_RTS(UART_T* uart)
  *
  *    @param    uart    The base address of UART module
  *    @return   RS-485  Address Byte Detection Flag
- * \hideinitializer 
+ * \hideinitializer
  */
 #define UART_RS485_GET_ADDR_FLAG(uart)    ((uart->FIFOSTS  & UART_FIFOSTS_ADDRDETF_Msk) >> UART_FIFOSTS_ADDRDETF_Pos)
 
