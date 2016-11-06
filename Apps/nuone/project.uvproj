@@ -42,7 +42,7 @@
             <NotGenerated>0</NotGenerated>
             <InvalidFlash>1</InvalidFlash>
           </TargetStatus>
-          <OutputDirectory>.\build\</OutputDirectory>
+          <OutputDirectory>.\obj\</OutputDirectory>
           <OutputName>nuone</OutputName>
           <CreateExecutable>1</CreateExecutable>
           <CreateLib>0</CreateLib>
@@ -75,7 +75,7 @@
             <UserProg1Name>fromelf --bincombined --output "$L@L.bin" "$L@L.axf"</UserProg1Name>
             <UserProg2Name>"C:\Nuvoton NuVoice Tool\Utility\PadFile.exe" --size=0x23400 --pad=0xff  "$L@L.bin"</UserProg2Name>
             <UserProg1Dos16Mode>0</UserProg1Dos16Mode>
-            <UserProg2Dos16Mode>0</UserProg2Dos16Mode>
+            <UserProg2Dos16Mode>1</UserProg2Dos16Mode>
           </AfterMake>
           <SelectedForBatchBuild>0</SelectedForBatchBuild>
           <SVCSIdString></SVCSIdString>
