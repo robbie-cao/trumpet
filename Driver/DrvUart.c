@@ -87,6 +87,19 @@ void UART0_IRQHandler(void)
 /*---------------------------------------------------------------------------------------------------------*/
 void UART_Init(void)
 {
+    /* Unlock protected registers */
+    SYS_UnlockReg();
+
+    /*---------------------------------------------------------------------------------------------------------*/
+    /* Init I/O Multi-function                                                                                 */
+    /*---------------------------------------------------------------------------------------------------------*/
+    /* Set GPG multi-function pins for UART0 RXD and TXD */
+    SYS->GPA_MFP  = (SYS->GPA_MFP & (~SYS_GPA_MFP_PA8MFP_Msk) ) | SYS_GPA_MFP_PA8MFP_UART_TX;
+    SYS->GPA_MFP  = (SYS->GPA_MFP & (~SYS_GPA_MFP_PA9MFP_Msk) ) | SYS_GPA_MFP_PA9MFP_UART_RX;
+
+    /* Lock protected registers */
+    SYS_LockReg();
+
     /* Reset IP */
     CLK_EnableModuleClock(UART_MODULE);
     SYS_ResetModule(UART0_RST);

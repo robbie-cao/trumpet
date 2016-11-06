@@ -102,13 +102,6 @@ INT32 main()
 
 	CLK_EnableLDO(CLK_LDOSEL_3_3V);	// Enable interl 3.3 LDO.
 
-	/*---------------------------------------------------------------------------------------------------------*/
-	/* Init I/O Multi-function                                                                                 */
-	/*---------------------------------------------------------------------------------------------------------*/
-	/* Set GPG multi-function pins for UART0 RXD and TXD */
-	SYS->GPA_MFP  = (SYS->GPA_MFP & (~SYS_GPA_MFP_PA8MFP_Msk) ) | SYS_GPA_MFP_PA8MFP_UART_TX;
-	SYS->GPA_MFP  = (SYS->GPA_MFP & (~SYS_GPA_MFP_PA9MFP_Msk) ) | SYS_GPA_MFP_PA9MFP_UART_RX;
-
 	UART_Init();
 
 	printf("\r\n");
