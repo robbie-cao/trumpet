@@ -1,19 +1,6 @@
 #include <stdio.h>
 #include <string.h>
 
-#include "ISD9xx.h"
-
-#include "Driver\DrvPDMA.h"
-#include "Driver\DrvDPWM.h"
-#include "Driver\DrvGPIO.h"
-#include "Driver\DrvSYS.h"
-
-#include "Lib\libSPIFlash.h"
-#include "Lib\LibSiren7.h"
-
-#include "NVTTypes.h"
-#include "PlaySpi.h"
-#include "SpiFlash.h"
 #include "Conf.h"
 #include "Log.h"
 

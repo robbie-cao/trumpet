@@ -3,7 +3,6 @@
 
 #include "Reg.h"
 #include "Conf.h"
-#include "Lib\LibSiren7.h"
 
 typedef struct {
     RegChInfo_t playingInfo;

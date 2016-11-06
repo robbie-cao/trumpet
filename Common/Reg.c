@@ -31,13 +31,13 @@ int8_t Reg_Write(uint8_t addr, uint8_t *pBuf, uint8_t size)
 void Reg_StatusChangeAlert(uint8_t alertBits)
 {
     *(uint8_t *)&sRegisterMap.ifg |= alertBits;
-    DrvGPIO_ClrBit(GPA, STATUS_ALERT_PIN);
+    // TODO
 }
 
 void Reg_StatusClear(void)
 {
     *(uint8_t *)&sRegisterMap.ifg = 0;
-    DrvGPIO_SetBit(GPA, STATUS_ALERT_PIN);
+    // TODO
 }
 
 

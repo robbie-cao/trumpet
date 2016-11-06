@@ -1,7 +1,6 @@
 #include <string.h>
 #include <stdint.h>
 
-#include "mua_types.h"
 #include "parser.h"
 
 #include "ISD9160.h"

@@ -1,8 +1,6 @@
 #ifndef __CONF_H__
 #define __CONF_H__
 
-#include "Siren.h"
-
 #define VOLUME_MAX_BITS         4
 #define VOLUME_MAX              (1 << VOLUME_MAX_BITS)
 #define VOLUME_MIN              2
