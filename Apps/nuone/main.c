@@ -22,7 +22,8 @@
 //
 //	Reference "Readme.txt" for more information.
 // ---------------------------------------------------------------------------------------------------------
-
+#include <stdio.h>
+#include <string.h>
 
 #include "App.h"
 #include "Framework.h"
@@ -30,6 +31,8 @@
 #include "SPIFlash.h"
 #include "ConfigSysClk.h"
 #include "MicSpk.h"
+
+#include "DrvUart.h"
 
 #if( !defined(__CHIP_SERIES__) )
 #error "Please update SDS version >= v5.0."
@@ -98,6 +101,20 @@ INT32 main()
 									// The configuration functions are in "SysClkConfig.h"
 
 	CLK_EnableLDO(CLK_LDOSEL_3_3V);	// Enable interl 3.3 LDO.
+
+	/*---------------------------------------------------------------------------------------------------------*/
+	/* Init I/O Multi-function                                                                                 */
+	/*---------------------------------------------------------------------------------------------------------*/
+	/* Set GPG multi-function pins for UART0 RXD and TXD */
+	SYS->GPA_MFP  = (SYS->GPA_MFP & (~SYS_GPA_MFP_PA8MFP_Msk) ) | SYS_GPA_MFP_PA8MFP_UART_TX;
+	SYS->GPA_MFP  = (SYS->GPA_MFP & (~SYS_GPA_MFP_PA9MFP_Msk) ) | SYS_GPA_MFP_PA9MFP_UART_RX;
+
+	UART_Init();
+
+	printf("\r\n");
+	printf("+------------------------------------------------------------------------+\r\n");
+	printf("|                    ISD9100 NuOne                                       |\r\n");
+	printf("+------------------------------------------------------------------------+\r\n");
 
 	if (! SPIFlash_Initiate())		// Initiate SPI interface and checking flows for accessing SPI flash.
 		while(1); 					// loop here for easy debug
