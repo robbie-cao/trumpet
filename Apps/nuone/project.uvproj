@@ -735,6 +735,16 @@
               <FileType>1</FileType>
               <FilePath>..\..\Driver\DrvUart.c</FilePath>
             </File>
+            <File>
+              <FileName>Audio.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Driver\Audio.c</FilePath>
+            </File>
+            <File>
+              <FileName>DrvI2C.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Driver\DrvI2C.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -749,6 +759,21 @@
               <FileName>ATC.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\Utils\ATC.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Common</GroupName>
+          <Files>
+            <File>
+              <FileName>Reg.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Common\Reg.c</FilePath>
+            </File>
+            <File>
+              <FileName>OP.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Common\OP.c</FilePath>
             </File>
           </Files>
         </Group>

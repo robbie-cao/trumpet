@@ -106,10 +106,10 @@ void SYS_Init(void)
 
     /* Enable External OSC49M */
     CLK_EnableXtalRC(CLK_PWRCTL_HIRCEN_Msk);
-	
+
     /* Enable External OSC10K */
     CLK_EnableXtalRC(CLK_PWRCTL_LIRCEN_Msk);
-	
+
     /* Switch HCLK clock source to HXT */
     CLK_SetHCLK(CLK_CLKSEL0_HCLKSEL_HIRC, CLK_CLKSEL0_HIRCFSEL_48M, CLK_CLKDIV0_HCLK(1));
 

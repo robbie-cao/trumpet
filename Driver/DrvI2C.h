@@ -1,6 +1,7 @@
-#ifndef __I2C_H__
-#define __I2C_H__
+#ifndef __DRVI2C_H__
+#define __DRVI2C_H__
 
+#include "mtypes.h"
 
 typedef enum {
     // I2C_MASTER mode statuses.

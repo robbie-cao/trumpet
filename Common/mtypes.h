@@ -16,7 +16,7 @@ typedef unsigned long   uint32;   //!< Unsigned 32 bit integer
 typedef unsigned char   bool;     //!< Boolean data type
 #endif
 
-#if !(defined __STDINT_H) && !(defined __stdint_h)
+#if /*!(defined __STDINT_H) &&*/ !(defined __stdint_h)
 typedef signed   char   int8_t;   //!< Signed 8 bit integer
 typedef unsigned char   uint8_t;  //!< Unsigned 8 bit integer
 typedef signed   short  int16_t;  //!< Signed 16 bit integer

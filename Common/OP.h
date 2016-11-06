@@ -1,7 +1,7 @@
 #ifndef __OP_H__
 #define __OP_H__
 
-
+#include "mtypes.h"
 
 #define ENDIAN_CONVERT_16(x)        ((((x) & 0xFF) << 8) | (((x) & 0xFF00) >> 8))
 #define ENDIAN_CONVERT_32(x)        ((ENDIAN_CONVERT_16((x) & 0xFFFF) << 16) | (ENDIAN_CONVERT_16(((x) >> 16) & 0xFFFF)))

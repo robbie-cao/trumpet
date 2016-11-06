@@ -21,16 +21,16 @@
 
 #define AUDIOBUFFERSIZE         320
 #define COMPBUFSIZE             40  // According to BIT_RATE
-#define S7DATA_BASE_ADDR_ON_SPI    0
-#define FACTOR_BASE_BIT            8
-#define FACTOR_BASE 			   128
+#define S7DATA_BASE_ADDR_ON_SPI 0
+#define FACTOR_BASE_BIT         8
+#define FACTOR_BASE             128
 
-#define SOUND_DECREASE_THRES_0	192
-#define SOUND_DECREASE_THRES_1	64
-#define SOUND_DECREASE_THRES_2	8
-#define SOUND_DECREASE_STEP_0		8
-#define SOUND_DECREASE_STEP_1		8
-#define SOUND_DECREASE_STEP_2		8
+#define SOUND_DECREASE_THRES_0  192
+#define SOUND_DECREASE_THRES_1  64
+#define SOUND_DECREASE_THRES_2  8
+#define SOUND_DECREASE_STEP_0   8
+#define SOUND_DECREASE_STEP_1   8
+#define SOUND_DECREASE_STEP_2   8
 
 
 #endif

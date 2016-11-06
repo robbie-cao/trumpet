@@ -1,6 +1,5 @@
 #include "ISD9160.h"
 #include "GPIO.h"
-#include "SYS.h"
 #include "OP.h"
 #include "Reg.h"
 

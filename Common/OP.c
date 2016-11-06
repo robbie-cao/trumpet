@@ -1,15 +1,14 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdint.h>
 
+#include "DrvI2C.h"
+#include "Audio.h"
+#include "Reg.h"
+#include "OP.h"
 #include "Conf.h"
 #include "Log.h"
 
-#include "OP.h"
-#include "PM.h"
-#include "SYS.h"
-#include "Reg.h"
-#include "I2C.h"
-#include "Audio.h"
 
 /*
  * OP module will handle on register only.
@@ -100,7 +99,9 @@ int8_t OP_Handler(OpCmd_t *pCmd)
 {
     uint8_t i;
 
+#if 0
     PM_Wakeup();
+#endif
 
     if (!pCmd) {
         return SYS_INVALID_PARAM;
@@ -117,14 +118,18 @@ int8_t OP_Handler(OpCmd_t *pCmd)
 
 static int8_t OP_Reset(OpCmd_t *pCmd)
 {
+#if 0
     Sys_Reset();
+#endif
 
     return SYS_GOOD;
 }
 
 static int8_t OP_SoftReset(OpCmd_t *pCmd)
 {
+#if 0
     Sys_SoftReset();
+#endif
 
     return SYS_GOOD;
 }
@@ -133,33 +138,11 @@ static int8_t OP_SetPowerMode(OpCmd_t *pCmd)
 {
     sRegisterMap.ctl.powerMode = pCmd->data;
 
-#if 1
+#if 0
     PM_DeepPowerDown();
-    return SYS_GOOD;
-
-#else
-    // Move PM management to main loop
-    // Here will operate on register only
-    // TODO
-    switch (pCmd->data) {
-        case ISD9160_POWER_STATE_DPD:
-            PM_DeepPowerDown();
-            break;
-        case ISD9160_POWER_STATE_SPD:
-            PM_StandbyPowerDown();
-            break;
-        case ISD9160_POWER_STATE_DEEPSLEEP:
-            PM_DeepSleep();
-            break;
-        case ISD9160_POWER_STATE_SLEEP:
-            // TODO
-        case ISD9160_POWER_STATE_NORMAL:
-        default:
-            PM_Wakeup();
-            break;
-    }
-    return SYS_GOOD;
 #endif
+
+    return SYS_GOOD;
 }
 
 static int8_t OP_SetIntEn(OpCmd_t *pCmd)
