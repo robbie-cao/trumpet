@@ -6,3 +6,5 @@
 #define AUDIOROM_STORAGE_START_ADDR	(0)
 
 #endif
+
+/* vim: set ts=4 sw=4 tw=0 noexpandtab : */

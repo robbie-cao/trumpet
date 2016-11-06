@@ -2,7 +2,7 @@
 /*                                                                                                         */
 /* Copyright(c) Nuvoton Technology Corp. All rights reserved.                                              */
 /*                                                                                                         */
-/*---------------------------------------------------------------------------------------------------------*/	 
+/*---------------------------------------------------------------------------------------------------------*/
 
 // ---------------------------------------------------------------------------------------------------------
 //	Functions:
@@ -27,7 +27,7 @@ extern BOOL App_StopPlay(void);
 extern void App_PowerDown(void);
 
 void Playback_KeypadHandler(UINT32 u32Param)
-{		
+{
 	if ( (g_u8AppCtrl&APPCTRL_PLAY) == 0 )
 	{
 		if( g_sApp.u32TotalAudioNum > 0 )
@@ -39,21 +39,21 @@ void Playback_KeypadHandler(UINT32 u32Param)
 
 void PlayNext_KeypadHandler(UINT32 u32Param)
 {
-	if ( g_u8AppCtrl&APPCTRL_PLAY )	
-		Playback_StopPlay();	
+	if ( g_u8AppCtrl&APPCTRL_PLAY )
+		Playback_StopPlay();
 
 	if( g_sApp.u32TotalAudioNum > 0 )
 	{
 		if( (g_sApp.u32PlayID+=1) >= g_sApp.u32TotalAudioNum )
 			g_sApp.u32PlayID = 0;
-		
+
 		App_StartPlay();
 	}
 }
 
 void PlayPrev_KeypadHandler(UINT32 u32Param)
-{ 
-	if ( g_u8AppCtrl&APPCTRL_PLAY )	 
+{
+	if ( g_u8AppCtrl&APPCTRL_PLAY )
 		Playback_StopPlay();
 
 	if( g_sApp.u32TotalAudioNum > 0 )
@@ -121,15 +121,17 @@ void Default_KeyHandler(UINT32 u32Param)
 			break;
 		case TG3F:
 			PlayPrev_KeypadHandler(0);
-			break;	
+			break;
 		case TG4P:
-			PowerDown_KeypadHandler(0);	
-			break;	
+			PowerDown_KeypadHandler(0);
+			break;
 		case TG5F:
 			PlayMute_KeypadHandler(0);
-			break;	
+			break;
 		case TG6F:
 			PlayPause_KeypadHandler(0);
-			break;	
+			break;
 	}
 }
+
+/* vim: set ts=4 sw=4 tw=0 noexpandtab : */

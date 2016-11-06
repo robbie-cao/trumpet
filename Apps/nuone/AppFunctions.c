@@ -58,26 +58,26 @@ void App_Initiate(void)
 {
 	// Initiate the control variable "g_u8AppCtrl" which is used for controling audio playback, audio recording and others.
 	g_u8AppCtrl = APPCTRL_NO_ACTION;
-	
+
 	// Initiate the audio playback.
 	Playback_Initiate();
-	
+
 	// Configure the UltraIO curve output funciton's interrupt priority.
 	// Lower this priority if other interrupt services should be higher than UltraIO curve output function!
 	#if ( ULTRAIO_FW_CURVE_ENABLE )
 	NVIC_SetPriority(ULTRAIO_TMR_IRQ, 1);
-	#endif	
-	
+	#endif
+
 	// Initiate NuOneEx audio decode lib with callback functions stored in g_asAppCallBack[0]
 	NuOneExApp_DecodeInitiate(&g_sApp.sNuOneExAppDecode, (UINT8 *)&g_sApp.uTempBuf, 0);
 
-	// Get total audio number from ROM file header. 
+	// Get total audio number from ROM file header.
 	// The ROM file is placed on SPI Flash address "AUDIOROM_STORAGE_START_ADDR"
 	g_sApp.u32TotalAudioNum = AudioRom_GetAudioNum( SPIFlash_ReadDataCallback, AUDIOROM_STORAGE_START_ADDR );
-	
+
 	// Initiate play audio id.
 	g_sApp.u32PlayID = 0;
-	
+
 	// Light stand by(PB8) led for initial ready().
 	OUT3(0);
 }
@@ -85,7 +85,7 @@ void App_Initiate(void)
 //---------------------------------------------------------------------------------------------------------
 // Function: App_StartPlay
 //
-// Description:                                                                                           
+// Description:
 //	Start audio playback.
 //
 // Return:
@@ -99,19 +99,19 @@ BOOL App_StartPlay(void)
 	// And decode the first frame of PCMs.
 	if ( NuOneExApp_DecodeStartPlayByID(&g_sApp.sNuOneExAppDecode, g_sApp.u32PlayID, AUDIOROM_STORAGE_START_ADDR, 0) == FALSE )
 		return FALSE;
-	
+
 	// Start Ultraio Timer & HW pwm for UltraIO curve output
 	ULTRAIO_START();
-	
-	// Start to playback audio. 
+
+	// Start to playback audio.
 	Playback_StartPlay();
 
 	return TRUE;
 }
 
 //---------------------------------------------------------------------------------------------------------
-// Description:                                                                                            
-//	Stop audio playback.                                                                             
+// Description:
+//	Stop audio playback.
 //
 // Return:
 // 	FALSE: fail
@@ -119,47 +119,47 @@ BOOL App_StartPlay(void)
 //---------------------------------------------------------------------------------------------------------
 BOOL App_StopPlay(void)
 {
-	// Stop to decode audio data from ROM file for stoping to play audio codec. 
+	// Stop to decode audio data from ROM file for stoping to play audio codec.
 	// Remove audio codec output buffer from play channel.
 	NuOneExApp_DecodeStopPlay( &g_sApp.sNuOneExAppDecode );
-	
+
 	// Stop speaker.
 	Playback_StopPlay();
-	
+
 	// Stop Ultraio Timer & HW pwm.
 	ULTRAIO_STOP();
-	
+
 	return TRUE;
 }
 
 //---------------------------------------------------------------------------------------------------------
 // Function: App_ProcessPlay
 //
-// Description:                                                                                            
+// Description:
 //   Produce PCM data for audio playback
 //
 // Return:
 //	FALSE: No PCM produced for audio playback
-//	TRUE:  Have PCMs produced for audio playback                                      
+//	TRUE:  Have PCMs produced for audio playback
 //---------------------------------------------------------------------------------------------------------
 BOOL App_ProcessPlay(void)
 {
 	UINT8 u8ActiveProcessCount = 0;
-	
+
 	// Continue decode NuOneEx data to produce PCMs for audio playback.
 	if ( NuOneExApp_DecodeProcess(&g_sApp.sNuOneExAppDecode) == TRUE )
 		u8ActiveProcessCount ++;
-	
+
 	if ( u8ActiveProcessCount )
 		return TRUE;
-	
+
 	return FALSE;
 }
 
 //---------------------------------------------------------------------------------------------------------
 // Function: App_PowerDown
 //
-// Description:                                                                                            
+// Description:
 //   Process flow of power-down for application. Include,
 //   1. App_PowerDownProcess:Pre-process befor entering power-down.
 //   2. PowerDown:Power down base process(PowerDown.c).
@@ -169,10 +169,12 @@ BOOL App_ProcessPlay(void)
 void App_PowerDown(void)
 {
 	App_StopPlay();
-	
+
 	#if(POWERDOWN_ENABLE)
 	PowerDown_Enter();
 	PowerDown();
 	PowerDown_Exit();
 	#endif
 }
+
+/* vim: set ts=4 sw=4 tw=0 noexpandtab : */
