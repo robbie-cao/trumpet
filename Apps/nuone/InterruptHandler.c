@@ -31,29 +31,29 @@ void Record_Process(PINT16 pi16Buff);
 
 
 //---------------------------------------------------------------------------------------------------------
-// PDMA interrupt handler                                                 
+// PDMA interrupt handler
 //---------------------------------------------------------------------------------------------------------
 void PDMA_IRQHandler()
 {
 #if ((APU_ENABLE) && (APU_PDMA_ENABLE))
 	if (PDMA_GET_CH_INT_STS(APU_PDMA_CH)&PDMA_CHIF_TXOKIF_Msk)
 	{
-		PDMA_CLR_CH_INT_FLAG(APU_PDMA_CH,PDMA_CHIF_TXOKIF_Msk );											
-		Playback_Process(g_ai16DACSamples);	
+		PDMA_CLR_CH_INT_FLAG(APU_PDMA_CH,PDMA_CHIF_TXOKIF_Msk );
+		Playback_Process(g_ai16DACSamples);
 	}
 #endif
-	
+
 #if ((ADC_ENABLE) && (ADC_PDMA_ENABLE))
 	if (PDMA_GET_CH_INT_STS(ADC_PDMA_CH)&PDMA_CHIF_TXOKIF_Msk)
 	{
 		PDMA_CLR_CH_INT_FLAG(ADC_PDMA_CH,PDMA_CHIF_TXOKIF_Msk );
-		Record_Process(g_ai16ADCSamples);	
+		Record_Process(g_ai16ADCSamples);
 	}
 #endif
 }
 
 //---------------------------------------------------------------------------------------------------------
-// CAP interrupt handler                                                 
+// CAP interrupt handler
 //---------------------------------------------------------------------------------------------------------
 void CAPS_IRQHandler()
 {
@@ -62,7 +62,7 @@ void CAPS_IRQHandler()
 }
 
 //---------------------------------------------------------------------------------------------------------
-// Timer0 interrupt handler                                                 
+// Timer0 interrupt handler
 //---------------------------------------------------------------------------------------------------------
 void TMR0_IRQHandler()
 {
@@ -72,16 +72,16 @@ void TMR0_IRQHandler()
 }
 
 //---------------------------------------------------------------------------------------------------------
-// Timer1 interrupt handler                                                 
+// Timer1 interrupt handler
 //---------------------------------------------------------------------------------------------------------
 void TMR1_IRQHandler()
 {
 	TIMER_ClearIntFlag(TIMER1);
-	
+
 	TRIGGER_KEY_DEBOUNCE();
 	MATRIX_KEY_DEBOUNCE();
 	TOUCH_KEY_PRESS_COUNT();
-	
+
 	ULTRAIO_OUTCURVETMR1();
 }
 
@@ -113,6 +113,8 @@ void RTC_IRQHandler()
 //---------------------------------------------------------------------------------------------------------
 void WDT_IRQHandler()
 {
-//	WDT_CLEAR_TIMEOUT_WAKEUP_FLAG();	
+//	WDT_CLEAR_TIMEOUT_WAKEUP_FLAG();
 //	WDT_CLEAR_RESET_FLAG();
 }
+
+/* vim: set ts=4 sw=4 tw=0 noexpandtab : */

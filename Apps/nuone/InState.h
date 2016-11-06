@@ -21,3 +21,5 @@ enum E_INSTATE
 
 //%{CodeGen_Block_End}
 #endif //_INSTATE_H_
+
+/* vim: set ts=4 sw=4 tw=0 noexpandtab : */

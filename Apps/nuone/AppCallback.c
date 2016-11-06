@@ -46,3 +46,6 @@ UINT32 UserEvent_ProcessCallback(UINT16 u16EventIndex, UINT16 u16EventSubIndex)
 	ULTRAIO_EVENTHANDLER(u16EventIndex,u16EventSubIndex);
 	return 0;
 }
+
+/* vim: set ts=4 sw=4 tw=0 noexpandtab : */
+

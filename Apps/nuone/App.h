@@ -4,13 +4,13 @@
 /*                                                                                                         */
 /*---------------------------------------------------------------------------------------------------------*/
 #ifndef _APP_H_
-#define _APP_H_	  	 
+#define _APP_H_
 
 #include "ConfigApp.h"
 #include "Framework.h"
 
 // -------------------------------------------------------------------------------------------------------------------------------
-// g_u8AppCtrl Bit Field Definitions 
+// g_u8AppCtrl Bit Field Definitions
 // -------------------------------------------------------------------------------------------------------------------------------
 #define APPCTRL_NO_ACTION			0
 #define APPCTRL_PLAY				BIT0
@@ -22,7 +22,7 @@
 #define APPCTRL_MUTE				BIT7
 
 // -------------------------------------------------------------------------------------------------------------------------------
-// Application Related Definitions 
+// Application Related Definitions
 // -------------------------------------------------------------------------------------------------------------------------------
 #include "NuOneExApp_Decode.h"
 #include "PlaybackRecord.h"
@@ -33,18 +33,19 @@
 typedef struct
 {
 	S_NUONEEX_APP_DECODE sNuOneExAppDecode;
-	
+
 	union
 	{
 		UINT32 u32NuOneExTempBuf[(NUONEEX_DECODE_TEMP_BUF_SIZE+3)/4];
 	}uTempBuf;
-	
+
 	// Current audio play id.
 	UINT32 u32PlayID;
 	// Total audio number(load from rom header.)
 	UINT32 u32TotalAudioNum;
-	
+
 } S_APP;
 
 #endif //#ifndef _APP_H_
 
+/* vim: set ts=4 sw=4 tw=0 noexpandtab : */

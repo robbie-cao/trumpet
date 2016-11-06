@@ -11,14 +11,16 @@ extern "C"
 /**
   * @brief   Select the system(HCLK) frequency.
   * @details Select system clock to be one of the followings
-  * 48, 32 MHz		
+  * 48, 32 MHz
   */
 #define SYSTEM_CLK		48
 
 #define SYSCLK_INITIATE() SysClk_InitiateRC(1000000UL*SYSTEM_CLK)
-	
+
 #ifdef __cplusplus
 }
 #endif
 
 #endif
+
+/* vim: set ts=4 sw=4 tw=0 noexpandtab : */

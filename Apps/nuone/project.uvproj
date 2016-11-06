@@ -345,7 +345,7 @@
               <MiscControls></MiscControls>
               <Define>__ISD9100__</Define>
               <Undefine></Undefine>
-              <IncludePath>.;..\..\BSP\Library\Device\Nuvoton\ISD9100\Include;..\..\BSP\Library\Framework\inc;..\..\BSP\Library\IO\inc;..\..\BSP\Library\Audio\inc;..\..\BSP\Library\StdDriver\inc;..\..\BSP\Library\Storage\inc;..\..\BSP\Library\CMSIS\Include;..\</IncludePath>
+              <IncludePath>.;..\..\BSP\Library\Device\Nuvoton\ISD9100\Include;..\..\BSP\Library\Framework\inc;..\..\BSP\Library\IO\inc;..\..\BSP\Library\Audio\inc;..\..\BSP\Library\StdDriver\inc;..\..\BSP\Library\Storage\inc;..\..\BSP\Library\CMSIS\Include;..\..\Common;..\..\Driver;..\..\Utils</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -568,7 +568,7 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>Driver</GroupName>
+          <GroupName>StdDriver</GroupName>
           <Files>
             <File>
               <FileName>acmp.c</FileName>
@@ -724,6 +724,31 @@
               <FileName>P16_Keil.lib</FileName>
               <FileType>4</FileType>
               <FilePath>..\..\BSP\Library\Audio\arm\P16_Keil.lib</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Driver</GroupName>
+          <Files>
+            <File>
+              <FileName>DrvUart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Driver\DrvUart.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Utils</GroupName>
+          <Files>
+            <File>
+              <FileName>Parser.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Utils\Parser.c</FilePath>
+            </File>
+            <File>
+              <FileName>ATC.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Utils\ATC.c</FilePath>
             </File>
           </Files>
         </Group>
