@@ -33,6 +33,7 @@
 #include "MicSpk.h"
 
 #include "DrvUart.h"
+#include "DrvI2C.h"
 
 #if( !defined(__CHIP_SERIES__) )
 #error "Please update SDS version >= v5.0."
@@ -255,6 +256,7 @@ INT32 main()
 									// Use ADC_Resume() to start ADC operation.
 									// Reference "MicSpk.h" for MIC related APIs.
 
+	I2C_Init();
 
 	App_Initiate();					// Initiate application for audio decode.
 

@@ -42,7 +42,7 @@ uint8_t I2C_DataReceived(void);
 void    I2C_DataClear(void);
 void    I2C_DataTxBufPrepare(uint8_t *pSrc, uint8_t len);
 
-void InitialI2C(void);
+void I2C_Init(void);
 
 #endif
 
